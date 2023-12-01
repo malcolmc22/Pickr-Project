@@ -33,10 +33,40 @@ def update_album(user_id, album_id):
             db.session.commit()
             return {"album": album.to_dict()}
         else:
-            return {"error": "album does not exist"}
+            return {"error": "album does not exist"}, 404
     else:
-        return {"error": "these are not your albums"}
+        return {"error": "these are not your albums"}, 404
 
 @album_routes.route('/<int:user_id>', methods=['POST'])
 @login_required
 def add_album(user_id):
+    id = current_user.id
+    if user_id == id:
+        album_name = request.json.get("name")
+
+        new_album = Album(
+            name = album_name,
+            user_id = id
+        )
+        db.session.add(new_album)
+        db.session.commit()
+
+        return new_album.to_dict()
+    else:
+        return {"error" : "Unauthorized"}, 400
+
+@album_routes.route('/<int:user_id>/<int:album_id>', methods=['DELETE'])
+@login_required
+def delete_album(user_id, album_id):
+    id = current_user.id
+    if user_id == id:
+        album = Album.query.filter_by(user_id=id, id=album_id).first()
+
+        if album:
+            db.session.delete(album)
+            db.session.commit()
+            return {"message": "album deleted"}
+        else:
+            return {"error": "album does not exist"}
+    else :
+        return {"error" : "Unauthorized"}, 400
