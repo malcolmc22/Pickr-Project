@@ -5,3 +5,38 @@ from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 album_routes = Blueprint('albums', __name__)
+
+# get all albums
+@album_routes.route('/<int:user_id>')
+@login_required
+def get_albums(user_id):
+    id = current_user.id
+    if user_id == id:
+        albums = Album.query.filter_by(user_id=id).all()
+
+        return {'Albums': [album.to_dict() for album in albums]}
+    else:
+        return {"error": "these are not your albums"}
+
+@album_routes.route('/<int:user_id>/<int:album_id>', methods=["PUT"])
+@login_required
+def update_album(user_id, album_id):
+    id = current_user.id
+    if user_id == id:
+        album = Album.query.filter_by(user_id=id, id=album_id).first()
+        if album:
+            # print(album, 'this is album=-----')
+            new_name = request.json.get("name")
+
+            if new_name:
+                album.name = new_name
+            db.session.commit()
+            return {"album": album.to_dict()}
+        else:
+            return {"error": "album does not exist"}
+    else:
+        return {"error": "these are not your albums"}
+
+@album_routes.route('/<int:user_id>', methods=['POST'])
+@login_required
+def add_album(user_id):

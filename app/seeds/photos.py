@@ -8,13 +8,13 @@ from sqlalchemy.sql import text
 def seed_photos():
     demo = Photo(
         title='Demo Photo', description='we have the good music here', album_id = 1, user_id = 1,
-        photo_url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKj3UCU-UeVg6qkhwgE4QR8lzVrvqoDzJ4TIKZtYlniY4BULJbA-y2VhNaRb_zs5MxhHA&usqp=CAU')
+        photo_url='https://pickrphotos.s3.amazonaws.com/download+(1).jpg')
     marnie = Photo(
         title='Marnie Photo', description='im kinda bad at seed data so this is whatever', album_id=2 , user_id = 2,
-        photo_url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKj3UCU-UeVg6qkhwgE4QR8lzVrvqoDzJ4TIKZtYlniY4BULJbA-y2VhNaRb_zs5MxhHA&usqp=CAU')
+        photo_url='https://pickrphotos.s3.amazonaws.com/download+(2).jpg')
     bobbie = Photo(
         title='Bobbie Photo', album_id=3, user_id=3,
-        photo_url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKj3UCU-UeVg6qkhwgE4QR8lzVrvqoDzJ4TIKZtYlniY4BULJbA-y2VhNaRb_zs5MxhHA&usqp=CAU')
+        photo_url='https://pickrphotos.s3.amazonaws.com/download+(3).jpg')
 
     db.session.add(demo)
     db.session.add(marnie)

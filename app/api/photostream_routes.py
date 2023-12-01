@@ -5,7 +5,7 @@ from app.forms import SignUpForm
 from app.forms.photo_form import PhotoForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.api.aws import (
-    upload_file_to_s3, get_unique_filename)
+    upload_file_to_s3, get_unique_filename, remove_file_from_s3)
 
 photo_routes = Blueprint('photos', __name__)
 
@@ -85,6 +85,13 @@ def delete_photo(user_id, photo_id):
     id = current_user.id
     photo = Photo.query.filter_by(id=photo_id, user_id=id).first()
     if photo:
+
+        url = photo.photo_url
+        print(url, 'this is url-----------')
+        if url:
+            print('you are inside the if -----------')
+            remove_file_from_s3(photo.photo_url)
+
         db.session.delete(photo)
         db.session.commit()
         return {"message": "photo deleted"}
