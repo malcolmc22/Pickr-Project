@@ -9,17 +9,18 @@ from app.api.aws import (
 
 photo_routes = Blueprint('photos', __name__)
 
-
+# get photo by id
 @photo_routes.route('/<int:user_id>/<int:photo_id>')
 @login_required
 def get_photo_by_id(user_id, photo_id):
     photos_owned = Photo.query.filter_by(user_id=user_id).all()
 
-    photo_by_id = [photo for photo in photos_owned if photo.id == photo_id]
-    # print('this is photo -----------', photo)
-    return {'Photo': [photo.to_dict() for photo in photo_by_id]}
+    photo_by_id = [photo.to_dict() for photo in photos_owned if photo.id == photo_id]
+    print('this is photo -----------', photo_by_id)
+    # return 'hi'
+    return {'Photo': photo_by_id}
 
-
+# get all photos
 @photo_routes.route('/<int:user_id>')
 @login_required
 def get_photos(user_id):
@@ -27,6 +28,7 @@ def get_photos(user_id):
 
     return {'Photos': [photo.to_dict() for photo in photos]}
 
+# create a photo
 @photo_routes.route('/<int:user_id>', methods=['POST'])
 @login_required
 def post_photo(user_id):
@@ -54,4 +56,37 @@ def post_photo(user_id):
 
         return new_photo.to_dict()
 
-    return 'hi'
+    return {"error": "you didnt validate on submit!?!?!"}
+
+# update a photo
+@photo_routes.route('/<int:user_id>/<int:photo_id>', methods=['PUT'])
+@login_required
+def update_photo(user_id, photo_id):
+    id = current_user.id
+    photos_owned = Photo.query.filter_by(user_id=id).all()
+
+    new_title = request.json.get("title")
+    new_desc = request.json.get("description")
+
+    photo_by_id = [photo for photo in photos_owned if photo.id == photo_id]
+
+    if new_title:
+        photo_by_id[0].title = new_title
+    if new_desc:
+        photo_by_id[0].description = new_desc
+    db.session.commit()
+
+    return {"Photo": photo_by_id[0].to_dict()}
+
+# delete a photo
+@photo_routes.route('/<int:user_id>/<int:photo_id>', methods=['DELETE'])
+@login_required
+def delete_photo(user_id, photo_id):
+    id = current_user.id
+    photo = Photo.query.filter_by(id=photo_id, user_id=id).first()
+    if photo:
+        db.session.delete(photo)
+        db.session.commit()
+        return {"message": "photo deleted"}
+    else :
+        return {"error": "photo not found or does not belong to user"}
