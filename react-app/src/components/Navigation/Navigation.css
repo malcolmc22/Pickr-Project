@@ -5,3 +5,9 @@
 .hidden {
   display: none;
 }
+
+nav {
+  background-color: #202023;
+  display: flex;
+  justify-content: space-between;
+}

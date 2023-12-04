@@ -8,16 +8,38 @@ function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
+		<nav>
+			<div>
 				<NavLink exact to="/">Home</NavLink>
-			</li>
-			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
+			</div>
+			{isLoaded && !sessionUser && (
+				<div className="auth-container">
+				<div className="nav-buttons-container">
+					<div>
+						<NavLink exact to="/login">
+							<button className="nav-login-button">Log In</button>
+						</NavLink>
+					</div>
+					<div>
+						<NavLink exact to="/signup">
+							<button className="nav-signup-button">Sign Up</button>
+						</NavLink>
+					</div>
+				</div>
+			</div>
 			)}
-		</ul>
+			{isLoaded && sessionUser && (
+				<div>
+				<div>
+
+				</div>
+				<div>
+					<button> Log Out </button>
+					{/* <ProfileButton user={sessionUser} isLoaded={isLoaded} /> */}
+				</div>
+				</div>
+			)}
+		</nav>
 	);
 }
 
