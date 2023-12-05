@@ -5,8 +5,10 @@
 .hidden {
   display: none;
 }
-
-nav {
+.logo-image {
+  height: 50px;
+}
+.header-nav {
   background-color: #202023;
   display: flex;
   justify-content: space-between;

@@ -9,6 +9,16 @@ from app.api.aws import (
 
 photo_routes = Blueprint('photos', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f"{field} : {error}")
+    return errorMessages
+
 # get photo by id
 @photo_routes.route('/<int:user_id>/<int:photo_id>')
 @login_required
@@ -33,7 +43,7 @@ def get_photos(user_id):
 @login_required
 def post_photo(user_id):
     form = PhotoForm()
-
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         title = form.data['title']
         description = form.data['description']
@@ -56,7 +66,7 @@ def post_photo(user_id):
 
         return new_photo.to_dict()
 
-    return {"error": "you didnt validate on submit!?!?!"}
+    return {"error": validation_errors_to_error_messages(form.errors)}, 400
 
 # update a photo
 @photo_routes.route('/<int:user_id>/<int:photo_id>', methods=['PUT'])
