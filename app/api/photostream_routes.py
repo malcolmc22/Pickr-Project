@@ -23,7 +23,8 @@ def validation_errors_to_error_messages(validation_errors):
 @photo_routes.route('/<int:user_id>/<int:photo_id>')
 @login_required
 def get_photo_by_id(user_id, photo_id):
-    photos_owned = Photo.query.filter_by(user_id=user_id).all()
+    id = current_user.id
+    photos_owned = Photo.query.filter_by(user_id=id).all()
 
     photo_by_id = [photo.to_dict() for photo in photos_owned if photo.id == photo_id]
     print('this is photo -----------', photo_by_id)
@@ -97,9 +98,9 @@ def delete_photo(user_id, photo_id):
     if photo:
 
         url = photo.photo_url
-        print(url, 'this is url-----------')
+        # print(url, 'this is url-----------')
         if url:
-            print('you are inside the if -----------')
+            # print('you are inside the if -----------')
             remove_file_from_s3(photo.photo_url)
 
         db.session.delete(photo)

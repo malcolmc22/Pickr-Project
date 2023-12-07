@@ -1,14 +1,20 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchPhotos } from '../../store/photo';
-import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchAlbums } from '../../store/album';
 
 function Albums() {
     const { user_id } = useParams();
     // console.log(user_id, 'userid')
     const dispatch = useDispatch();
+    const history = useHistory();
+    const sessionUser = useSelector((state) => state.session.user);
+    const photos = useSelector((state) => Object.values(state.photo.allPhotos)[0]);
+    const albums = useSelector((state) => state.album.allAlbums.Albums)
 
+    // console.log(albums, 'albms')
+    // console.log(photos,'phptos')
     useEffect(() => {
         dispatch(fetchPhotos(user_id))
         dispatch(fetchAlbums(user_id))
@@ -32,6 +38,18 @@ function Albums() {
             <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
             <NavLink exact to={`/${user_id}/albums`}>Albums</NavLink>
         </nav>
+        <div><button onClick={() => history.push(`/${sessionUser.id}/albums/new-album`)}>Create Album</button></div>
+        {albums?.length && (
+            <div className='all-albums-container'>
+                {albums?.map((album) => (
+                    <div key={album.id}>
+                        <div>{album.name}</div>
+                        <div><button onClick={() => history.push(`/${sessionUser.id}/albums/${album.id}/update`)}>Update Album</button></div>
+                        <div><button onClick={() => history.push(`/${sessionUser.id}/albums/${album.id}/delete`)}>Delete Album</button></div>
+                    </div>
+                ))}
+            </div>
+        )}
         </>
     )
 }

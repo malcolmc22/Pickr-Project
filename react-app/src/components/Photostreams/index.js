@@ -43,6 +43,8 @@ function PhotoStream() {
                 <div key={photo.id}>
                 <div>{photo.id}</div>
                 <img  alt={photo.name} src={photo.photo_url} onClick={() => history.push(`/${sessionUser.id}/${photo.id}`)}/>
+                <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/update`)}>Update Photo</button></div>
+                <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/delete`)}>Delete Photo</button></div>
                 </div>
             ))}
         </div>

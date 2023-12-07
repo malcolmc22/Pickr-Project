@@ -10,6 +10,11 @@ import PhotoStream from "./components/Photostreams";
 import Albums from "./components/albums";
 import CreatePhoto from "./components/Photostreams/CreatePhoto";
 import PhotoById from "./components/Photostreams/PhotoById";
+import UpdatePhoto from "./components/Photostreams/UpdatePhoto";
+import DeletePhoto from "./components/Photostreams/DeletePhoto";
+import CreateAlbum from "./components/albums/CreateAlbum";
+import DeleteAlbum from "./components/albums/DeleteAlbum";
+import UpdateAlbum from "./components/albums/UpdateAlbum";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,8 +43,23 @@ function App() {
           <Route exact path='/:user_id/albums'>
               <Albums />
           </Route>
+          <Route exact path='/:user_id/albums/:album_id/update'>
+              <UpdateAlbum />
+          </Route>
+          <Route exact path='/:user_id/albums/:album_id/delete'>
+              <DeleteAlbum />
+          </Route>
+          <Route exact path='/:user_id/albums/new-album'>
+              <CreateAlbum />
+          </Route>
           <Route exact path='/:user_id/new-photostream'>
               <CreatePhoto />
+          </Route>
+          <Route exact path='/:user_id/:photo_id/update'>
+              <UpdatePhoto />
+          </Route>
+          <Route exact path='/:user_id/:photo_id/delete'>
+              <DeletePhoto />
           </Route>
           <Route exact path='/:user_id/:photo_id'>
               <PhotoById />

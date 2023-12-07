@@ -56,7 +56,7 @@ function CreatePhoto() {
             onChange={(e) => setPhotoUrl(e.target.files[0])}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit">Create Photo</button>
         {imageLoading && <p>Loading...</p>}
       </form>
     </>

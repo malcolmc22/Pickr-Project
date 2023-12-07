@@ -18,6 +18,18 @@ def get_albums(user_id):
     else:
         return {"error": "these are not your albums"}
 
+# get album by id
+@album_routes.route('/<int:user_id>/<int:album_id>')
+@login_required
+def get_album_by_id(user_id, album_id):
+    id = current_user.id
+    albums_owned = Album.query.filter_by(user_id=id).all()
+
+    album_by_id = [album.to_dict() for album in albums_owned if album.id == album_id]
+    # print('this is photo -----------', photo_by_id)
+    # return 'hi'
+    return {'Album': album_by_id}
+
 @album_routes.route('/<int:user_id>/<int:album_id>', methods=["PUT"])
 @login_required
 def update_album(user_id, album_id):

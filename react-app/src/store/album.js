@@ -1,5 +1,5 @@
 const GET_ALBUMS = 'albums/getAlbums'
-
+const GET_ALBUM = 'albums/getAlbum'
 // Action Creator
 const getAlbums = (payload) => {
     return {
@@ -8,8 +8,23 @@ const getAlbums = (payload) => {
     }
 }
 
+const getAlbum = (payload) => {
+    return {
+        type: GET_ALBUM,
+        payload
+    }
+}
+
 // Thunks
 
+export const fetchAlbum = (user_id, album_id) => async (dispatch) => {
+    const res = await fetch (`/api/albums/${user_id}/${album_id}`)
+
+    const data = await res.json();
+    dispatch(getAlbum(data))
+    return data;
+
+}
 export const fetchAlbums = (user_id) => async (dispatch) => {
     const res = await fetch(`/api/albums/${user_id}`)
 
@@ -18,6 +33,37 @@ export const fetchAlbums = (user_id) => async (dispatch) => {
     return data;
 }
 
+export const fetchDeleteAlbum = (user_id, album_id) => async (dispatch) => {
+    const res = await fetch(`/api/albums/${user_id}/${album_id}`, {
+        method: "DELETE"
+    })
+
+    const data = await res.json();
+    return data
+}
+
+export const fetchUpdateAlbum = (user_id, album_id, payload) => async (dispatch) => {
+    const res = await fetch(`/api/albums/${user_id}/${album_id}`, {
+        method: "PUT",
+        headers: {"Content-Type" : "application/json"},
+        body: JSON.stringify(payload)
+    })
+
+
+    const data = await res.json();
+    return data
+}
+
+export const fetchCreateAlbum = (user_id, payload) => async (dispatch) => {
+    const res = await fetch(`/api/albums/${user_id}`, {
+        method: "POST",
+        headers: {"Content-Type" : "application/json"},
+        body: JSON.stringify(payload)
+    })
+
+    const data = await res.json();
+    return data;
+}
 
 // Reducer
 
@@ -32,6 +78,12 @@ export const albumReducer = (state = initialState, action) => {
             return {
                 ...state,
                 allAlbums: action.payload
+            }
+        }
+        case GET_ALBUM:{
+            return {
+                ...state,
+                album: action.payload
             }
         }
         default:
