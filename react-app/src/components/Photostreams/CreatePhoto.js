@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchNewPhoto } from "../../store/photo";
+
 function CreatePhoto() {
   const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();

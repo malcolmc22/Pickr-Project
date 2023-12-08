@@ -13,3 +13,20 @@
   display: flex;
   justify-content: space-between;
 }
+.navlinks-container {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-around;
+}
+
+/* gets rid of default css for navlinks so we can change them */
+a:-webkit-any-link {
+  text-decoration: none;
+  color: darkgray;
+}
+/* hovers for navlinks turn text green */
+a:-webkit-any-link:hover {
+  text-decoration: none;
+  color: black;
+}

@@ -25,15 +25,18 @@ function Navigation({ isLoaded }) {
       </div> */}
       {isLoaded && !sessionUser && (
         <div className="auth-container">
-          <div className="logo-container">
-            <NavLink exact to="/">
+          <div>
+            <div className="logo-container">
               <img
+                onClick={() => history.push('/')}
                 alt="logo"
                 className="logo-image"
                 src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
               />
-              Pickr
-            </NavLink>
+              <NavLink exact to="/">
+                Pickr
+              </NavLink>
+            </div>
           </div>
           <div className="nav-buttons-container">
             <div>
@@ -51,15 +54,16 @@ function Navigation({ isLoaded }) {
       )}
       {isLoaded && sessionUser && (
         <>
-          <div>
-            <div>
+          <div className="navlinks-container">
+            <div className="logo-container">
+              <img
+                onClick={()=> history.push('/')}
+                alt="logo"
+                className="logo-image"
+                src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
+              />
               <NavLink exact to="/">
-                <img
-                  alt="logo"
-                  className="logo-image"
-                  src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
-                />
-                Pickr
+                <div>Pickr</div>
               </NavLink>
             </div>
             <div>
