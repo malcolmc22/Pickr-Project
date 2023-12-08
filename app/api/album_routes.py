@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db, Album
+from app.models import User, db, Album, Photo
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -82,3 +82,17 @@ def delete_album(user_id, album_id):
             return {"error": "album does not exist"}
     else :
         return {"error" : "Unauthorized"}, 400
+
+@album_routes.route('/<int:user_id>/<int:album_id>/add/<int:photo_id>', methods=["PUT"])
+@login_required
+def add_photo_to_album(user_id, album_id, photo_id):
+    id = current_user.id
+    if user_id == id:
+        photo = Photo.query.filter_by(id = photo_id).first()
+
+        if photo:
+            photo.album_id = album_id
+        db.session.commit()
+        return photo.to_dict()
+    else:
+        return {"error": "these are not your albums"}

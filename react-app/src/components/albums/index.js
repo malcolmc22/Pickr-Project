@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchPhotos } from '../../store/photo';
 import { NavLink, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchAlbums } from '../../store/album';
-
+import './album.css'
 function Albums() {
     const { user_id } = useParams();
     // console.log(user_id, 'userid')
@@ -43,7 +43,7 @@ function Albums() {
             <div className='all-albums-container'>
                 {albums?.map((album) => (
                     <div key={album.id}>
-                        <div>{album.name}</div>
+                        <div className='album' onClick={()=> history.push(`/${sessionUser.id}/albums/${album.id}`)}>{album.name}</div>
                         <div><button onClick={() => history.push(`/${sessionUser.id}/albums/${album.id}/update`)}>Update Album</button></div>
                         <div><button onClick={() => history.push(`/${sessionUser.id}/albums/${album.id}/delete`)}>Delete Album</button></div>
                     </div>

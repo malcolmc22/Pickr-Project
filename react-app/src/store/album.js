@@ -65,6 +65,15 @@ export const fetchCreateAlbum = (user_id, payload) => async (dispatch) => {
     return data;
 }
 
+export const fetchAddPhotoToAlbum = (user_id, album_id, photo_id) => async (dispatch) => {
+    const res = await fetch(`/api/albums/${user_id}/${album_id}/add/${photo_id}`,{
+        method: "PUT"
+    })
+
+    const data = await res.json();
+    return data
+}
+
 // Reducer
 
 const initialState = {

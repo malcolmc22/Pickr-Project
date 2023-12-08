@@ -1,0 +1,13 @@
+.album {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEtwSPegPgzaDj5kspPK7YQr3ngylYXa4ZMg&usqp=CAU');
+    height: 200px;
+    width: 200px;
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
+}
+.all-albums-container {
+    display: flex;
+    padding-left: 5px;
+}

@@ -15,6 +15,7 @@ import DeletePhoto from "./components/Photostreams/DeletePhoto";
 import CreateAlbum from "./components/albums/CreateAlbum";
 import DeleteAlbum from "./components/albums/DeleteAlbum";
 import UpdateAlbum from "./components/albums/UpdateAlbum";
+import AlbumById from "./components/albums/GetAlbumById";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route exact path='/:user_id/albums/new-album'>
               <CreateAlbum />
+          </Route>
+          <Route exact path='/:user_id/albums/:album_id'>
+              <AlbumById />
           </Route>
           <Route exact path='/:user_id/new-photostream'>
               <CreatePhoto />
