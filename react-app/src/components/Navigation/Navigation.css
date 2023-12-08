@@ -7,11 +7,17 @@
 }
 .logo-image {
   height: 50px;
+  padding-right: 10px;
 }
 .header-nav {
   background-color: #202023;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  left: 0px;
+  top: 0px;
 }
 .navlinks-container {
   display: flex;
@@ -28,5 +34,27 @@ a:-webkit-any-link {
 /* hovers for navlinks turn text green */
 a:-webkit-any-link:hover {
   text-decoration: none;
-  color: black;
+
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  padding-left: 30px;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container > a {
+  font-size: xx-large;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#root {
+  padding-top: 42px;
 }

@@ -31,9 +31,11 @@ function App() {
         <Switch>
           <Route exact path="/login" >
             <LoginFormPage />
+            <Landing />
           </Route>
           <Route exact path="/signup">
             <SignupFormPage />
+            <Landing />
           </Route>
           <Route exact path='/' >
             <Landing />

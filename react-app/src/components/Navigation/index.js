@@ -25,7 +25,6 @@ function Navigation({ isLoaded }) {
       </div> */}
       {isLoaded && !sessionUser && (
         <div className="auth-container">
-          <div>
             <div className="logo-container">
               <img
                 onClick={() => history.push('/')}
@@ -33,10 +32,9 @@ function Navigation({ isLoaded }) {
                 className="logo-image"
                 src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
               />
-              <NavLink exact to="/">
+              <NavLink className="logo-text" exact to="/">
                 Pickr
               </NavLink>
-            </div>
           </div>
           <div className="nav-buttons-container">
             <div>
@@ -62,7 +60,7 @@ function Navigation({ isLoaded }) {
                 className="logo-image"
                 src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
               />
-              <NavLink exact to="/">
+              <NavLink className="logo-text" exact to="/">
                 <div>Pickr</div>
               </NavLink>
             </div>

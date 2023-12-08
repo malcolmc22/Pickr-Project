@@ -43,7 +43,7 @@ function Albums() {
             <div className='all-albums-container'>
                 {albums?.map((album) => (
                     <div key={album.id}>
-                        <div className='album' onClick={()=> history.push(`/${sessionUser.id}/albums/${album.id}`)}>{album.name}</div>
+                        <div className='album' onClick={()=> history.push(`/${sessionUser.id}/albums/${album.id}`)}><div className='album-name'>{album.name}</div></div>
                         <div><button onClick={() => history.push(`/${sessionUser.id}/albums/${album.id}/update`)}>Update Album</button></div>
                         <div><button onClick={() => history.push(`/${sessionUser.id}/albums/${album.id}/delete`)}>Delete Album</button></div>
                     </div>
