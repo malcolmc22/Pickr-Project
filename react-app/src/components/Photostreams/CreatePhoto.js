@@ -55,6 +55,7 @@ function CreatePhoto() {
             type="file"
             accept="image/*"
             onChange={(e) => setPhotoUrl(e.target.files[0])}
+            required
           />
         </label>
         <button type="submit">Create Photo</button>
