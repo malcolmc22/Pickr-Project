@@ -21,6 +21,11 @@ function LoginFormPage() {
     }
   };
 
+  const demoUser = () => {
+		setEmail("demo@aa.io");
+		setPassword("password");
+	};
+
   return (
     <>
       <h1>Log In</h1>
@@ -49,6 +54,9 @@ function LoginFormPage() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button type="submit" className="demo-button" onClick={demoUser}>
+							Demo User
+						</button>
       </form>
     </>
   );
