@@ -20,3 +20,28 @@
     top: 0;
     z-index: -1;
   }
+
+.landing-intro{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 285px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.start-for-free-button {
+    height: 64px;
+    font-size: 24px;
+    font-weight: 800;
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+    margin-top: 20px;
+    background: white;
+    color: black;
+}
+
+.start-for-free-button:hover {
+    color: rgb(202, 184, 184);
+}

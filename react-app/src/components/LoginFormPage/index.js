@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import './LoginForm.css';
+import "./LoginForm.css";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -22,13 +22,18 @@ function LoginFormPage() {
   };
 
   const demoUser = () => {
-		setEmail("demo@aa.io");
-		setPassword("password");
-	};
+    setEmail("demo@aa.io");
+    setPassword("password");
+  };
 
   return (
-    <>
-      <h1>Log In</h1>
+    <div className="login-container">
+      <img
+        alt="logo"
+        className="logo-image"
+        src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
+      />
+      <h1>Log In To Pickr</h1>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
@@ -53,12 +58,12 @@ function LoginFormPage() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button  className='login-button' type="submit">Log In</button>
         <button type="submit" className="demo-button" onClick={demoUser}>
-							Demo User
-						</button>
+          Demo User
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 

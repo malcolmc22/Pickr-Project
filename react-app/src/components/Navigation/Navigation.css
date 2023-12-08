@@ -13,7 +13,7 @@
   background-color: #202023;
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   width: 100%;
   left: 0px;
@@ -57,4 +57,25 @@ a:-webkit-any-link:hover {
 }
 #root {
   padding-top: 42px;
+}
+.nav-buttons-container {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-buttons-container > div > a > button {
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.nav-buttons-container > div > a > button:hover {
+  color: lightgray;
 }
