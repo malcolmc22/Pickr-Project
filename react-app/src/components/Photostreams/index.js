@@ -33,15 +33,15 @@ function PhotoStream() {
             </div>
             <div>joined 2023</div>
         </div>
-        <nav>
+        <nav className='you-page-nav'>
             <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
             <NavLink exact to={`/${user_id}/albums`}>Albums</NavLink>
         </nav>
+        <div className='create-photo-button-container'><button onClick={() => history.push(`/${sessionUser.id}/new-photostream`)}>Create Photo</button></div>
         <div className='all-photos-container'>
-            <div><button onClick={() => history.push(`/${sessionUser.id}/new-photostream`)}>Create Photo</button></div>
             {photos?.map((photo) => (
                 <div key={photo.id}>
-                <div>{photo.id}</div>
+                {/* <div>{photo.id}</div> */}
                 <img  alt={photo.name} src={photo.photo_url} onClick={() => history.push(`/${sessionUser.id}/${photo.id}`)}/>
                 <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/update`)}>Update Photo</button></div>
                 <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/delete`)}>Delete Photo</button></div>

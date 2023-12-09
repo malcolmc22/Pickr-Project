@@ -35,11 +35,11 @@ function Albums() {
             </div>
             <div>joined 2023</div>
         </div>
-        <nav>
+        <nav className='you-page-nav'>
             <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
             <NavLink exact to={`/${user_id}/albums`}>Albums</NavLink>
         </nav>
-        <div><button onClick={() => history.push(`/${sessionUser.id}/albums/new-album`)}>Create Album</button></div>
+        <div className='create-album-button-container'><button onClick={() => history.push(`/${sessionUser.id}/albums/new-album`)}>Create Album</button></div>
         {albums?.length && (
             <div className='all-albums-container'>
                 {albums?.map((album) => (
