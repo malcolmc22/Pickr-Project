@@ -29,8 +29,13 @@ function SignupFormPage() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
+    <div className="signup-container">
+      <img
+        alt="logo"
+        className="logo-image"
+        src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
+      />
+      <h1>Sign Up For Pickr</h1>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -80,9 +85,9 @@ function SignupFormPage() {
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button className='signup-button' type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 

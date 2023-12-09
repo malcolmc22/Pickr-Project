@@ -1,0 +1,11 @@
+.user-info-container {
+
+}
+.profile-info {
+    height: 300px;
+    margin-top: 8px;
+    background-image: url('https://combo.staticflickr.com/pw/images/coverphoto03_h.jpg.v3');
+    background-repeat: no-repeat;
+    background-size: 100% ;
+    background-position: 50% 50%;
+}

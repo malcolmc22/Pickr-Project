@@ -33,7 +33,7 @@ function DeletePhoto() {
           </button>
           <button
             className="no-button"
-            onClick={() => history.push("/spots/current")}>
+            onClick={() => history.push(`/${user_id}/photostreams`)}>
             No (Keep Photo)
           </button>
         </div>

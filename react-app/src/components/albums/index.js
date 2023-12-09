@@ -4,6 +4,7 @@ import { fetchPhotos } from '../../store/photo';
 import { NavLink, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchAlbums } from '../../store/album';
 import './album.css'
+import Landing from '../HomePage';
 function Albums() {
     const { user_id } = useParams();
     // console.log(user_id, 'userid')
@@ -50,6 +51,7 @@ function Albums() {
                 ))}
             </div>
         )}
+        <Landing />
         </>
     )
 }

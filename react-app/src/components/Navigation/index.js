@@ -82,7 +82,7 @@ function Navigation({ isLoaded }) {
           </div>
 
           <div>
-            <button onClick={handleLogout}> Log Out </button>
+            <button className='logout-button' onClick={handleLogout}> Log Out </button>
             {/* <ProfileButton user={sessionUser} isLoaded={isLoaded} /> */}
           </div>
         </>

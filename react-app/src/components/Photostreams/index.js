@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux'
 import { fetchPhotos } from '../../store/photo';
 import { NavLink, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import './photo.css'
+import Landing from '../HomePage';
 
 function PhotoStream() {
     const { user_id } = useParams();
@@ -28,8 +30,6 @@ function PhotoStream() {
                 </div>
                 <div>user here</div>
                 <div>email</div>
-                <div>followers</div>
-                <div>following</div>
             </div>
             <div>joined 2023</div>
         </div>
@@ -48,6 +48,7 @@ function PhotoStream() {
                 </div>
             ))}
         </div>
+        <Landing />
         </>
     )
 }

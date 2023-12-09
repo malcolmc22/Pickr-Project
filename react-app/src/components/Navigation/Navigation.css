@@ -79,3 +79,18 @@ a:-webkit-any-link:hover {
 .nav-buttons-container > div > a > button:hover {
   color: lightgray;
 }
+
+.logout-button {
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-right: 50px;
+  margin-top: 5px;
+}
+body {
+  margin: 0;
+}

@@ -6,7 +6,7 @@
     background-color: #202023;
     color: white;
     text-align: center;
-    height: 5%;
+    height: 10%;
   }
 
   .landing-page-container {
@@ -44,4 +44,11 @@
 
 .start-for-free-button:hover {
     color: rgb(202, 184, 184);
+}
+
+.activity-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
 }

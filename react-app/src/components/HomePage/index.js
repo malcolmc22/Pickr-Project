@@ -9,19 +9,49 @@ function Landing() {
 
   return (
     <div>
-      {sessionUser && (
+      {sessionUser && location.pathname === `/${sessionUser.id}/prints` && (
         <div>
           <div className="left-container">
             <div className="activity-icon-container">
-              <div>All Activity</div>
+              {/* <div>All Activity</div> */}
             </div>
             <div className="activity-container">
-              <div> There is no activity to show right now.</div>
+              <h1> There is nothing to print right now.</h1>
+              <div>Print will be implemented at a later date, head on over to the You page!</div>
             </div>
           </div>
           <div className="right-container"></div>
         </div>
       )}
+      {sessionUser && location.pathname === `/${sessionUser.id}/explore` && (
+        <div>
+          <div className="left-container">
+            <div className="activity-icon-container">
+              {/* <div>All Activity</div> */}
+            </div>
+            <div className="activity-container">
+              <h1> There is nothing to explore right now.</h1>
+              <div>Explore will be implemented at a later date, head on over to the You page!</div>
+            </div>
+          </div>
+          <div className="right-container"></div>
+        </div>
+      )}
+      {sessionUser && location.pathname === `/` && (
+        <div>
+          <div className="left-container">
+            <div className="activity-icon-container">
+              {/* <div>All Activity</div> */}
+            </div>
+            <div className="activity-container">
+              <h1> There is no activity right now.</h1>
+              <div>Activity will be implemented at a later date, head on over to the You page!</div>
+            </div>
+          </div>
+          <div className="right-container"></div>
+        </div>
+      )}
+
       {!sessionUser && location.pathname === '/' && (
         <div className="landing-intro">
           <h1>Find your inspiration.</h1>
@@ -29,8 +59,8 @@ function Landing() {
           <button className='start-for-free-button' onClick={()=> history.push('/signup')}>Start for free</button>
         </div>
       )}
-      {!sessionUser && (
-        <div className="landing-page-container">
+        {!sessionUser && (<div className="landing-page-container"></div>)}
+        <div >
           <footer className="footer">
             <div className="malcolm-about">
               My socials:
@@ -39,7 +69,7 @@ function Landing() {
             </div>
           </footer>
         </div>
-      )}
+
     </div>
   );
 }

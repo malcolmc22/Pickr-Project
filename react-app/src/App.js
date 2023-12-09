@@ -46,6 +46,12 @@ function App() {
           <Route exact path='/:user_id/albums'>
               <Albums />
           </Route>
+          <Route exact path='/:user_id/explore'>
+              <Landing />
+          </Route>
+          <Route exact path='/:user_id/prints'>
+              <Landing />
+          </Route>
           <Route exact path='/:user_id/albums/:album_id/update'>
               <UpdateAlbum />
           </Route>
