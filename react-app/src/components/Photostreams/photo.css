@@ -1,5 +1,9 @@
 .create-photo-button-container {
     background-color: #F3F5F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
 }
 .you-page-nav {
     border-bottom: 1px solid lightgray;
@@ -25,6 +29,7 @@
     background-color: #F3F5F6;
     min-height: calc(100vh - 516px);
     flex-wrap: wrap;
+    padding-bottom: 140px;
 }
 
 .all-photos-container > div {
@@ -38,4 +43,36 @@
 .all-photos-container > div > img {
     height: 320px;
     width: 320px;
+}
+
+.create-photo-button {
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: #1396E7;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+}
+.create-photo-button:hover {
+    color: black;
+}
+.photo-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.photo-buttons-container > div > button {
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: #1396E7;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+}
+.photo-buttons-container > div > button:hover {
+    color: black;
 }

@@ -6,12 +6,14 @@
     text-align: center;
     color: black;
     font-weight: bold;
+    margin-left: 63px;
 }
 .all-albums-container {
     display: flex;
     background-color: #F3F5F6;
     min-height: calc(100vh - 516px);
     flex-wrap: wrap;
+    padding-bottom: 140px;
 }
 .all-albums-container > div {
     margin-top: 20px;
@@ -36,4 +38,43 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.create-album-button {
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: #1396E7;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+}
+.create-album-button:hover {
+    color: black;
+}
+.album-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.album-buttons-container > div > button {
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: #1396E7;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+}
+.album-buttons-container > div > button:hover {
+    color: black;
+}
+.create-album-button-container {
+    background-color: #F3F5F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
 }

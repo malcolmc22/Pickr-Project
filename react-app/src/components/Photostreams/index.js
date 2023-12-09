@@ -37,14 +37,16 @@ function PhotoStream() {
             <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
             <NavLink exact to={`/${user_id}/albums`}>Albums</NavLink>
         </nav>
-        <div className='create-photo-button-container'><button onClick={() => history.push(`/${sessionUser.id}/new-photostream`)}>Create Photo</button></div>
+        <div className='create-photo-button-container'><button className='create-photo-button' onClick={() => history.push(`/${sessionUser.id}/new-photostream`)}>Create Photo</button></div>
         <div className='all-photos-container'>
             {photos?.map((photo) => (
                 <div key={photo.id}>
                 {/* <div>{photo.id}</div> */}
                 <img  alt={photo.name} src={photo.photo_url} onClick={() => history.push(`/${sessionUser.id}/${photo.id}`)}/>
-                <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/update`)}>Update Photo</button></div>
-                <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/delete`)}>Delete Photo</button></div>
+                <div className='photo-buttons-container'>
+                    <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/update`)}>Update Photo</button></div>
+                    <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/delete`)}>Delete Photo</button></div>
+                </div>
                 </div>
             ))}
         </div>
