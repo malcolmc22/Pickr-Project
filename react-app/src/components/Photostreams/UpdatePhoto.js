@@ -43,8 +43,14 @@ function UpdatePhoto() {
     history.push(`/${user_id}/photostreams`)
   };
 
-  return (
+  return photo ? (
     <div className="update-form-container">
+       <img
+        alt="logo"
+        className="logo-image"
+        src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
+      />
+      <h1>Update {photo.title}</h1>
       <form onSubmit={handleSubmit}>
         <div className="update-title-container">
           <label>
@@ -59,7 +65,7 @@ function UpdatePhoto() {
         </div>
         <div className="update-description-container">
           <label>
-            description
+            Description
             <input
               className="update-description-input"
               type="text"
@@ -71,7 +77,7 @@ function UpdatePhoto() {
         <button className="update-pic-button" type="submit"> Update Photo </button>
       </form>
     </div>
-  );
+  ): null;
 }
 
 export default UpdatePhoto;
