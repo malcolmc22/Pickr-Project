@@ -49,6 +49,7 @@
     background-color: #1396E7;
     border: none;
     border-radius: 5px 5px 5px 5px;
+    margin-top: 10px;
 }
 .create-album-button:hover {
     color: black;

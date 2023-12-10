@@ -22,6 +22,12 @@ function CreateAlbum() {
   return (
     <>
       <form className='new-album-form' onSubmit={handleSubmit}>
+      <img
+        alt="logo"
+        className="logo-image"
+        src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
+      />
+      <h1>Create a New Album</h1>
       <label>
           Name
           <input
@@ -31,7 +37,7 @@ function CreateAlbum() {
             required
           />
         </label>
-        <button type="submit">Create Album</button>
+        <button className='create-album-button' type="submit">Create Album</button>
       </form>
     </>
   );
