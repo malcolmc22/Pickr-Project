@@ -7,6 +7,19 @@
     color: white;
     text-align: center;
     height: 10%;
+
+  }
+.social-links > a > img {
+    background-color: #202023;
+    width: 20px;
+    height: 20px;
+}
+  .social-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
   .landing-page-container {

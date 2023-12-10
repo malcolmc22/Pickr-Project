@@ -13,6 +13,10 @@
     border: none;
     box-shadow: 10px 5px 5px rgb(101, 98, 98);
 }
+.login-errors {
+    color: red;
+    font-weight: bold;
+}
 .login-container > img {
     padding-top: 20px;
 }

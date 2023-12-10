@@ -35,11 +35,11 @@ function LoginFormPage() {
       />
       <h1>Log In To Pickr</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
+        <div className="login-errors">
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <div key={idx}>{error}</div>
           ))}
-        </ul>
+        </div>
         <label>
           Email
           <input

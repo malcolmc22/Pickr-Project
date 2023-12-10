@@ -62,11 +62,17 @@ function Landing() {
         {!sessionUser && (<div className="landing-page-container"></div>)}
         <div >
           <footer className="footer">
-            <div className="malcolm-about">
-              My socials:
-              <a>email: malcolmcaleb01@gmail.com</a>
-              <a href="https://github.com/malcolmc22">github: @malcolmc22</a>
-            </div>
+            <h2>My socials:</h2>
+               <div className="social-links">
+              <a>Email: malcolmcaleb01@gmail.com</a>
+              <a href="https://github.com/malcolmc22">
+              Github: @malcolmc22
+              {/* <img
+              className="footer-github-logo"
+              src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+              /> */}
+              </a>
+              </div>
           </footer>
         </div>
 
