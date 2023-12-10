@@ -26,7 +26,7 @@ function DeletePhoto() {
   return (
     <>
       {photo && (
-        <div>
+        <div className="delete-confirmation">
           <h1>Are you sure you want to delete {photo.title}?</h1>
           <button className="yes-button" onClick={() => onDelete()}>
             Yes (Delete Photo)
