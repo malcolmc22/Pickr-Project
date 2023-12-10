@@ -15,7 +15,7 @@ class Album(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
 
     # Relationships
-    photos = db.relationship('Photo', backref='album', cascade='all, delete')
+    photos = db.relationship('Photo', backref='album')
 
     def to_dict(self):
         return {
