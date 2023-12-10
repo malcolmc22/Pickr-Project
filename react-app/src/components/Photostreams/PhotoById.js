@@ -10,7 +10,7 @@ function PhotoById() {
     const photo = useSelector((state) => state.photo.photo.Photo)
     const sessionUser = useSelector((state) => state.session.user);
 
-    console.log(photo)
+    // console.log(photo)
     useEffect(() => {
         dispatch(fetchPhotos(user_id))
         dispatch(fetchPhoto(user_id,photo_id))

@@ -11,7 +11,17 @@ function UpdateAlbum() {
     const photos = useSelector((state) => Object.values(state.photo.allPhotos)[0]);
     const [name, setName] = useState("");
     const sessionUser = useSelector((state) => state.session.user);
+    let addablePhotos = [];
 
+    if (photos) {
+      photos.map((photo => {
+        if (photo.album_id != album_id) {
+          addablePhotos.push(photo)
+        }
+      }))
+    }
+
+    // console.log(test,'testing map')
     useEffect(() => {
       dispatch(fetchPhotos(user_id))
       dispatch(fetchAlbums(user_id))
@@ -70,6 +80,7 @@ function UpdateAlbum() {
         <button className="update-album-button" type="submit"> Update Album Name </button>
         <h2>Add Photos:</h2>
       </form>
+      {addablePhotos.length ? (
       <div className='all-photos-not-in-album-container'>
             {photos?.map((photo) => (
                 photo.album_id != album_id ? (
@@ -79,7 +90,10 @@ function UpdateAlbum() {
                 <div><button className="add-photo-to-album-button" type="button" onClick={() => AddPhoto(photo.id)}>Add Photo</button></div>
                 </div>) : null
             ))}
-        </div>
+        </div>) :
+        <div className='all-photos-not-in-album-container'>
+          <h3>You have no Photos to add to this album!</h3>
+        </div>}
     </div>
   ): null ;
 }
