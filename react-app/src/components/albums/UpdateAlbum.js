@@ -46,8 +46,14 @@ function UpdateAlbum() {
     history.push(`/${sessionUser.id}/albums/${album_id}`)
   }
 
-  return (
-    <div className="update-form-container">
+  return album ? (
+    <div className="update-album-form-container">
+      <img
+        alt="logo"
+        className="logo-image"
+        src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
+      />
+      <h1>Update {album.name} Album</h1>
       <form onSubmit={handleSubmit}>
         <div className="update-title-container">
           <label>
@@ -62,19 +68,20 @@ function UpdateAlbum() {
 
         </div>
         <button className="update-album-button" type="submit"> Update Album Name </button>
+        <h2>Add Photos:</h2>
       </form>
-      <div className='all-photos-container'>
+      <div className='all-photos-not-in-album-container'>
             {photos?.map((photo) => (
                 photo.album_id != album_id ? (
                 <div key={photo.id}>
-                <div>{photo.id}</div>
+                {/* <div>{photo.id}</div> */}
                 <img  alt={photo.name} src={photo.photo_url} onClick={() => history.push(`/${sessionUser.id}/${photo.id}`)}/>
-                <div><button  type="button" onClick={() => AddPhoto(photo.id)}>Add Photo</button></div>
+                <div><button className="add-photo-to-album-button" type="button" onClick={() => AddPhoto(photo.id)}>Add Photo</button></div>
                 </div>) : null
             ))}
         </div>
     </div>
-  );
+  ): null ;
 }
 
 export default UpdateAlbum;

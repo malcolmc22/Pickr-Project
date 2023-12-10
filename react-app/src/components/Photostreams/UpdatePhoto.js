@@ -44,7 +44,7 @@ function UpdatePhoto() {
   };
 
   return photo ? (
-    <div className="update-form-container">
+    <div className="update-photo-form-container">
        <img
         alt="logo"
         className="logo-image"

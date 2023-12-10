@@ -27,7 +27,7 @@ function DeleteAlbum() {
   return (
     <>
       {album && (
-        <div>
+        <div className="delete-album-confirmation">
           <h1>Are you sure you want to delete {album.name}?</h1>
           <button className="yes-button" onClick={() => onDelete()}>
             Yes (Delete Album)

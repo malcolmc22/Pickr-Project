@@ -21,7 +21,7 @@ function CreateAlbum() {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className='new-album-form' onSubmit={handleSubmit}>
       <label>
           Name
           <input
