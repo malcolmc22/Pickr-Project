@@ -93,3 +93,33 @@
 .profile-name {
     font-size: 36px;
 }
+.create-photo-container {
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-top: 145px;
+    padding-bottom: 100px;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+    box-shadow: 5px 5px 10px 30px  rgb(101, 98, 98);
+}
+.create-photo-button{
+    margin-top: 20px;
+}
+.image-label {
+    display: block;
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: #1396E7;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+}

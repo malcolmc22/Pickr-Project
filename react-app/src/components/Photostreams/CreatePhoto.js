@@ -30,7 +30,13 @@ function CreatePhoto() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form className='create-photo-container' onSubmit={handleSubmit} encType="multipart/form-data">
+      <img
+        alt="logo"
+        className="logo-image"
+        src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
+      />
+      <h1>Create a New Photo</h1>
         <label>
           Title
           <input
@@ -49,16 +55,17 @@ function CreatePhoto() {
             required
             />
         </label>
-        <label>
+        <label for='file-upload' className="image-label">
           Image
           <input
+            id='file-upload'
             type="file"
             accept="image/*"
             onChange={(e) => setPhotoUrl(e.target.files[0])}
             required
           />
         </label>
-        <button type="submit">Create Photo</button>
+        <button className='create-photo-button' type="submit">Create Photo</button>
         {imageLoading && <p>Loading...</p>}
       </form>
     </>
