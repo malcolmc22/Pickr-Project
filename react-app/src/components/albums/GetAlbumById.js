@@ -20,9 +20,11 @@ function AlbumById() {
         dispatch(fetchAlbums(user_id))
     }, [dispatch, user_id])
 
-    return (
+    return photos ? (
         <div>
-        <div className='all-photos-container'>
+    {photos.length ?
+        (<div className='all-photos-container'>
+            {console.log(photos.length)}
             {photos?.map((photo) => (
                 photo.album_id == album_id ? (
                 <div key={photo.id}>
@@ -32,9 +34,9 @@ function AlbumById() {
                 <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/delete`)}>Delete Photo</button></div>
                 </div>) : null
             ))}
+        </div>) : <div>no photoz test</div>}
         </div>
-        </div>
-    )
+    ) : null
 }
 
 export default AlbumById

@@ -42,7 +42,7 @@ function PhotoStream() {
             {photos?.map((photo) => (
                 <div key={photo.id}>
                 {/* <div>{photo.id}</div> */}
-                <img  alt={photo.name} src={photo.photo_url} /*onClick={() => history.push(`/${sessionUser.id}/${photo.id}`)} */ />
+                <img  alt={photo.name} src={photo.photo_url} onClick={() => history.push(`/${sessionUser.id}/${photo.id}`)} />
                 <div className='photo-buttons-container'>
                     <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/update`)}>Update Photo</button></div>
                     <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/delete`)}>Delete Photo</button></div>
