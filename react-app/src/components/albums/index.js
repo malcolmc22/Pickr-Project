@@ -26,14 +26,12 @@ function Albums() {
         <div className='profile-info'>
             <div className='user-info-container'>
                 <div className='profile-img'>
-                    <div>img here</div>
+                    {/* <div>img here</div> */}
                 </div>
-                <div>user here</div>
-                <div>email</div>
-                <div>followers</div>
-                <div>following</div>
+                <div className='profile-name'>{sessionUser.first_name} {sessionUser.last_name}</div>
+                <div className='profile-email'>{sessionUser.email}</div>
             </div>
-            <div>joined 2023</div>
+
         </div>
         <nav className='you-page-nav'>
             <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>

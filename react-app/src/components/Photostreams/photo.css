@@ -16,12 +16,21 @@
     color: black;
 }
 .profile-info {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
     height: 300px;
     margin-top: 8px;
     background-image: url('https://combo.staticflickr.com/pw/images/coverphoto03_h.jpg.v3');
     background-repeat: no-repeat;
     background-size: 100% ;
     background-position: 50% 50%;
+    padding-left: 250px;
+    color: rgb(255, 255, 255);
+    /* font-size: 36px; */
+    font-weight: 300;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    /* position: absolute; */
 }
 
 .all-photos-container {
@@ -75,4 +84,12 @@
 }
 .photo-buttons-container > div > button:hover {
     color: black;
+}
+.profile-email{
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.profile-name {
+    font-size: 36px;
 }

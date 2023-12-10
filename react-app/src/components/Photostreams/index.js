@@ -26,12 +26,12 @@ function PhotoStream() {
         <div className='profile-info'>
             <div className='user-info-container'>
                 <div className='profile-img'>
-                    <div>img here</div>
+                    {/* <div>img here</div> */}
                 </div>
-                <div>user here</div>
-                <div>email</div>
+                <div className='profile-name'>{sessionUser.first_name} {sessionUser.last_name}</div>
+                <div className='profile-email'>{sessionUser.email}</div>
             </div>
-            <div>joined 2023</div>
+
         </div>
         <nav className='you-page-nav'>
             <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
@@ -42,7 +42,7 @@ function PhotoStream() {
             {photos?.map((photo) => (
                 <div key={photo.id}>
                 {/* <div>{photo.id}</div> */}
-                <img  alt={photo.name} src={photo.photo_url} onClick={() => history.push(`/${sessionUser.id}/${photo.id}`)}/>
+                <img  alt={photo.name} src={photo.photo_url} /*onClick={() => history.push(`/${sessionUser.id}/${photo.id}`)} */ />
                 <div className='photo-buttons-container'>
                     <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/update`)}>Update Photo</button></div>
                     <div><button onClick={() => history.push(`/${sessionUser.id}/${photo.id}/delete`)}>Delete Photo</button></div>
