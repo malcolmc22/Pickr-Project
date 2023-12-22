@@ -9,6 +9,13 @@
     height: 10%;
 
   }
+  .socials-title {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+  .footer-github-logo {
+    background-color: black;
+  }
 .social-links > a > img {
     background-color: #202023;
     width: 20px;
