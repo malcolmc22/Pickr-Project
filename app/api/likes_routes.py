@@ -13,7 +13,7 @@ def get_likes(photo_id):
     # id = current_user.id
     likes = Like.query.filter_by(photo_id=photo_id).all()
 
-    return {'like info': [like.to_dict() for like in likes]}
+    return {'likes': [like.to_dict() for like in likes]}
 
 # delete a like
 @like_routes.route('/<int:photo_id>/<int:user_id>' , methods=['DELETE'])
