@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux'
 import { fetchPhotos, fetchPhoto } from '../../store/photo';
-import { NavLink, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 function PhotoById() {
     const { user_id, photo_id } = useParams();

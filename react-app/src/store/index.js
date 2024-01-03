@@ -4,10 +4,14 @@ import session from './session'
 // import { photoReducer } from './photo';
 import photo from './photo'
 import album from './album'
+import likes from './likes'
+import comments from './comments'
 const rootReducer = combineReducers({
   session,
   photo,
-  album
+  album,
+  likes,
+  comments
 });
 
 
