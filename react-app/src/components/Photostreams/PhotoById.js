@@ -12,7 +12,7 @@ function PhotoById() {
     const history = useHistory();
     const photo = useSelector((state) => state.photo.photo.Photo)
     const sessionUser = useSelector((state) => state.session.user);
-    const comments = useSelector((state) => state.comments.comments.comments)
+    const comments = useSelector((state) => state.comments.comments)
     const likes = useSelector((state) => state.likes.likes)
     console.log('comments', comments)
     console.log('likes', likes)

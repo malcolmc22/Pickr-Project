@@ -13,7 +13,7 @@ def get_comments(photo_id):
     # id = current_user.id
     comments = Comment.query.filter_by(photo_id=photo_id).all()
 
-    return {'comments': [comment.to_dict() for comment in comments]}
+    return jsonify([comment.to_dict() for comment in comments])
 
 # update comment
 @comments_routes.route('/<int:photo_id>/<int:user_id>', methods=["PUT"])

@@ -68,17 +68,27 @@ export const likesReducer = (state = initialState, action) => {
             }
         }
         case LIKE_PHOTO: {
-            console.log('action', action.payload)
-            console.log('state test', state)
             return {
                 ...state,
                 likes: [...state.likes, action.payload]
             }
         }
         case DELETE_LIKE: {
-            console.log(state)
-            const like = state.likes.find((like) => like.photo_id == action.photo_id && like.user_id == action.user_id)
-            console.log(like, 'deleted like')
+            const newState = {...state}
+            const newLikes = newState.likes
+            console.log(newLikes)
+            const likeToDelete = state.likes.find((like) => like.photo_id == action.photo_id && like.user_id == action.user_id)
+            for (let i = 0; i < newLikes.length; i++) {
+                const currentLike = newLikes[i]
+                if (currentLike.id == likeToDelete.id) {
+                    newLikes.splice(i,1)
+                }
+            }
+
+            return {
+                ...state,
+                likes: [...newLikes]
+            }
         }
         default:
             return state;
