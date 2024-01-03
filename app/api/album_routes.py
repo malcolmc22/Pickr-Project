@@ -47,7 +47,7 @@ def update_album(user_id, album_id):
         else:
             return {"error": "album does not exist"}, 404
     else:
-        return {"error": "these are not your albums"}, 404
+        return {"error": "these are not your albums"}, 400
 
 @album_routes.route('/<int:user_id>', methods=['POST'])
 @login_required
@@ -79,7 +79,7 @@ def delete_album(user_id, album_id):
             db.session.commit()
             return {"message": "album deleted"}
         else:
-            return {"error": "album does not exist"}
+            return {"error": "album does not exist"}, 404
     else :
         return {"error" : "Unauthorized"}, 400
 
