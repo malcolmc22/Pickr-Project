@@ -27,8 +27,10 @@ def update_comment(photo_id, user_id):
 
             if new_body:
                 comment.body = new_body
-            db.session.commit()
-            return {"comment": comment.to_dict()}
+                db.session.commit()
+                return {"comment": comment.to_dict()}
+            else:
+                return {"error": "there is no body"}, 400
         else:
             return {"error": "comment does not exist"}, 404
     else:
@@ -57,14 +59,20 @@ def post_comment(photo_id, user_id):
     id = current_user.id
     if user_id == id:
         body = request.json.get("body")
-
-        new_comment = Comment(
-            body = body,
-            photo_id = photo_id,
-            user_id = id
-        )
-        db.session.add(new_comment)
-        db.session.commit()
+        comment = Comment.query.filter_by(photo_id=photo_id, user_id=id).first()
+        if not comment:
+            if body :
+                new_comment = Comment(
+                    body = body,
+                    photo_id = photo_id,
+                    user_id = id
+                )
+                db.session.add(new_comment)
+                db.session.commit()
+            else:
+                return {"error": "no body"}, 400
+        else:
+            return {"error": "you already commented on this photo"}, 400
 
         return new_comment.to_dict()
     else:

@@ -11,7 +11,7 @@ like_routes = Blueprint('likes', __name__)
 @login_required
 def get_likes(photo_id):
     # id = current_user.id
-    likes = Like.query.filter_by(photo_id=photo_id).first()
+    likes = Like.query.filter_by(photo_id=photo_id).all()
 
     return {'like info': [like.to_dict() for like in likes]}
 
@@ -39,7 +39,7 @@ def delete_like(photo_id, user_id):
 def like_photo(photo_id, user_id):
     id = current_user.id
     if user_id == id:
-        like = Photo.query.filter_by(photo_id = photo_id, user_id = id).first()
+        like = Like.query.filter_by(photo_id = photo_id, user_id = id).first()
         if not like:
             new_like = Like(
                 total = 1,
