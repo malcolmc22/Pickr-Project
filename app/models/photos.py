@@ -18,7 +18,8 @@ class Photo(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
 
     # Relationships
-    comments = db.relationship('Comment', backref='photo')
+    comments = db.relationship('Comment', backref='photo', cascade="all, delete")
+    likes = db.relationship('Like', backref='photo', cascade="all, delete")
 
     def to_dict(self):
         return {
