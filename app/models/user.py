@@ -20,6 +20,8 @@ class User(db.Model, UserMixin):
     # Relationships
     photos = db.relationship("Photo", backref = 'user')
     albums = db.relationship("Album", backref = 'user')
+    likes = db.relationship("Like", backref='user')
+    comments = db.relationship('Comment', backref='user')
 
     @property
     def password(self):
