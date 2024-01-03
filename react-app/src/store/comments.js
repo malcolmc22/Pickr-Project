@@ -22,7 +22,7 @@ export const fetchComments = (photo_id) => async (dispatch) => {
 
 // Reducer
 const initialState = {
-    comments: {}
+    comments: []
 }
 
 export const commentsReducer = (state = initialState, action) => {
