@@ -11,6 +11,16 @@ const getComments = (payload) => {
     }
 }
 
+// Thunks
+export const fetchComments = (photo_id) => async (dispatch) => {
+    const res = await fetch(`/api/comments/${photo_id}`)
+
+    const data = await res.json();
+    dispatch(getComments(data))
+    return data;
+}
+
+// Reducer
 const initialState = {
     comments: {}
 }

@@ -12,6 +12,15 @@ const getLikes = (payload) => {
 }
 
 // Thunks
+export const fetchLikes = (photo_id) => async (dispatch) => {
+    const res = await fetch(`/api/likes/${photo_id}`)
+
+    const data = await res.json();
+    dispatch(getLikes(data))
+    return data;
+}
+
+// Reducer
 const initialState = {
     likes: {}
 }
