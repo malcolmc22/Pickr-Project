@@ -13,10 +13,10 @@ def get_comments(photo_id):
     # id = current_user.id
     comments = Comment.query.filter_by(photo_id=photo_id).all()
 
-    return {'comments': [like.to_dict() for like in likes]}
+    return {'comments': [comment.to_dict() for comment in comments]}
 
 # update comment
-@comments_routes.route('/<int:photo_id>/<int:user_id>', methos=["PUT"])
+@comments_routes.route('/<int:photo_id>/<int:user_id>', methods=["PUT"])
 @login_required
 def update_comment(photo_id, user_id):
     id = current_user.id
@@ -35,7 +35,7 @@ def update_comment(photo_id, user_id):
         return {"error": "Unauthorized"}, 400
 
 # delete comment
-@comments_routes.route('/<int:photo_id>/<int:user_id>', methos=["DELETE"])
+@comments_routes.route('/<int:photo_id>/<int:user_id>', methods=["DELETE"])
 @login_required
 def delete_comment(photo_id, user_id):
     id = current_user.id
@@ -51,7 +51,7 @@ def delete_comment(photo_id, user_id):
         return {"error": "Unauthorized"}, 400
 
 # post comment
-@comments_routes.route('/<int:photo_id>/<int:user_id>', methos=["POST"])
+@comments_routes.route('/<int:photo_id>/<int:user_id>', methods=["POST"])
 @login_required
 def post_comment(photo_id, user_id):
     id = current_user.id
