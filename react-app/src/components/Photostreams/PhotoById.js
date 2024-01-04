@@ -60,10 +60,12 @@ function PhotoById() {
         }
         <div>{likes.length}</div>
         {comments.map((comment) => (
+            comment.user_id == sessionUser.id ?
             <div key={comment.id}>
                 <div className='comment-owner'>{comment.first_name} {comment.last_name}</div>
+                <div>... upd/del l8tr</div>
                 <div>{comment.body}</div>
-            </div>
+            </div> : null
         ))}
         <div className='new-comment'>
             <textarea
