@@ -56,6 +56,12 @@ export const commentsReducer = (state = initialState, action) => {
                 comments: action.payload
             }
         }
+        case POST_COMMENT: {
+            return {
+                ...state,
+                comments: [...state.comments, action.payload]
+            }
+        }
         default:
             return state;
     }
