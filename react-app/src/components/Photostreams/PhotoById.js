@@ -55,6 +55,7 @@ function PhotoById() {
                 <i className='fa-regular fa-thumbs-down' onClick={() => onDislike()}></i>
             </div>
         }
+        <div>{likes.length}</div>
         </>
     ) : null
 }

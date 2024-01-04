@@ -59,13 +59,17 @@ def post_comment(photo_id, user_id):
     id = current_user.id
     if user_id == id:
         body = request.json.get("body")
+        first_name = current_user.first_name
+        last_name = current_user.last_name
         comment = Comment.query.filter_by(photo_id=photo_id, user_id=id).first()
         if not comment:
             if body :
                 new_comment = Comment(
                     body = body,
                     photo_id = photo_id,
-                    user_id = id
+                    user_id = id,
+                    first_name = first_name,
+                    last_name = last_name
                 )
                 db.session.add(new_comment)
                 db.session.commit()
