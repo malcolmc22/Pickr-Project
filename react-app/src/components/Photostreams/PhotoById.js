@@ -3,7 +3,7 @@ import { useDispatch, useSelector} from 'react-redux'
 import { fetchPhotos, fetchPhoto } from '../../store/photo';
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchLikePhoto, fetchLikes, fetchUnlikePhoto } from '../../store/likes';
-import { fetchComments } from '../../store/comments';
+import { fetchComments, fetchNewComment } from '../../store/comments';
 
 function PhotoById() {
     const { user_id, photo_id } = useParams();
@@ -14,8 +14,6 @@ function PhotoById() {
     const sessionUser = useSelector((state) => state.session.user);
     const comments = useSelector((state) => state.comments.comments)
     const likes = useSelector((state) => state.likes.likes)
-    console.log('comments', comments)
-    console.log('likes', likes)
 
     useEffect(() => {
         dispatch(fetchPhotos(user_id))
@@ -31,6 +29,11 @@ function PhotoById() {
     const onDislike = async (e) => {
         const dislikePhoto = await dispatch(fetchUnlikePhoto(photo_id, sessionUser.id))
     }
+
+    const onNewComment = async (e) => {
+        const newComment = await dispatch(fetchNewComment(body, photo_id, sessionUser.id))
+    }
+
     return photo && likes && comments ? (
         <>
         <div className='photo-by-id-container'>
@@ -56,6 +59,21 @@ function PhotoById() {
             </div>
         }
         <div>{likes.length}</div>
+        {comments.map((comment) => (
+            <div key={comment.id}>
+                <div className='comment-owner'>{comment.first_name} {comment.last_name}</div>
+                <div>{comment.body}</div>
+            </div>
+        ))}
+        <div className='new-comment'>
+            <textarea
+            placeholder='Create a new comment here!'
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            required
+            />
+            <button  onClick={() => onNewComment()}disabled={body.length <= 0}>New Comment</button>
+        </div>
         </>
     ) : null
 }

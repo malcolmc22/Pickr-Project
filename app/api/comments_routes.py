@@ -61,23 +61,19 @@ def post_comment(photo_id, user_id):
         body = request.json.get("body")
         first_name = current_user.first_name
         last_name = current_user.last_name
-        comment = Comment.query.filter_by(photo_id=photo_id, user_id=id).first()
-        if not comment:
-            if body :
-                new_comment = Comment(
-                    body = body,
-                    photo_id = photo_id,
-                    user_id = id,
-                    first_name = first_name,
-                    last_name = last_name
-                )
-                db.session.add(new_comment)
-                db.session.commit()
-            else:
-                return {"error": "no body"}, 400
-        else:
-            return {"error": "you already commented on this photo"}, 400
 
+        if body :
+            new_comment = Comment(
+                body = body,
+                photo_id = photo_id,
+                user_id = id,
+                first_name = first_name,
+                last_name = last_name
+            )
+            db.session.add(new_comment)
+            db.session.commit()
+        else:
+            return {"error": "no body"}, 400
         return new_comment.to_dict()
     else:
         return {"error": "Unauthorized"}, 400
