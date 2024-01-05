@@ -62,21 +62,15 @@ function Landing() {
         {!sessionUser && (<div className="landing-page-container"></div>)}
         <div >
           <footer className="footer">
-            <h2 className="socials-title">My socials:</h2>
                <div className="social-links">
-              <a>Email: malcolmcaleb01@gmail.com</a>
-              <a href="https://www.linkedin.com/in/malcolm-caleb-7928722a5/">
-                LinkedIn:
-                <img className="footer-github-logo"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png?20140125013055"
-                />
+              <a className='email' onClick={() => window.location = 'mailto:malcolmcaleb01@gmail.com'}>
+                <i class="fa-solid fa-envelope fa-2xl"></i>
               </a>
-              <a href="https://github.com/malcolmc22">
-              Github:
-              <img
-              className="footer-github-logo"
-              src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
-              />
+              <a className='linkedin' href="https://www.linkedin.com/in/malcolm-caleb-7928722a5/">
+                <i className="fa-brands fa-linkedin fa-2xl"></i>
+              </a>
+              <a className='github' href="https://github.com/malcolmc22">
+                <i className="fa-brands fa-square-github fa-2xl"></i>
               </a>
               </div>
           </footer>
