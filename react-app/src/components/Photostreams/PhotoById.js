@@ -37,16 +37,23 @@ function PhotoById() {
     return photo && likes && comments ? (
         <>
         <div className='photo-by-id-container'>
+        <div className='back-to-photos-div' onClick={() => history.push(`/${sessionUser.id}/photostreams`)}><i className="fa-solid fa-arrow-left"></i> Back to Photostream</div>
             <img
         alt="logo"
         className="logo-image"
         src="https://www.freeiconspng.com/thumbs/flickr-logo-png/flickr-logo-png-17.png"
       />
-      <h1>Viewing {photo[0].title}</h1>
-      <img  alt={photo[0].name} src={photo[0].photo_url}  />
-                <div className='photo-buttons-container'>
-                    <div><button onClick={() => history.push(`/${sessionUser.id}/${photo[0].id}/update`)}>Update Photo</button></div>
-                    <div><button onClick={() => history.push(`/${sessionUser.id}/${photo[0].id}/delete`)}>Delete Photo</button></div>
+      <h1 className='photo-by-id-name'>Viewing {photo[0].title}</h1>
+      <div className='photo-by-id-photo-container'>
+        <img className='photo-by-id-photo' alt={photo[0].name} src={photo[0].photo_url}  />
+      </div>
+                <div className='photo-images-container'>
+                    <div className='photo-edit-container'>
+                        <i title="Edit Photo" className="fa-solid fa-pen-to-square fa-2xl" onClick={() => history.push(`/${sessionUser.id}/${photo[0].id}/update`)}></i>
+                    </div>
+                    <div className='photo-delete-container'>
+                        <i title='Delete Photo' className="fa-solid fa-trash fa-2xl" onClick={() => history.push(`/${sessionUser.id}/${photo[0].id}/delete`)}></i>
+                    </div>
                 </div>
         </div>
         {!likes.find((like) => like.user_id === sessionUser.id) ?

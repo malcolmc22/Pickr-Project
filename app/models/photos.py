@@ -15,7 +15,7 @@ class Photo(db.Model):
     album_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     photo_url = db.Column(db.String(255), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now)
 
     # Relationships
     comments = db.relationship('Comment', backref='photo', cascade="all, delete")

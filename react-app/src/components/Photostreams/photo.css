@@ -67,11 +67,14 @@
 .create-photo-button:hover {
     color: black;
 }
-.photo-buttons-container {
+.photo-images-container {
     display: flex;
     justify-content: space-evenly;
+    position: absolute;
+    top: 640px;
+    right: 45px;
 }
-.photo-buttons-container > div > button {
+/* .photo-images-container > div > button {
     margin-top: 5px;
     padding-top: 10px;
     padding-left: 25px;
@@ -81,10 +84,10 @@
     background-color: #1396E7;
     border: none;
     border-radius: 5px 5px 5px 5px;
-}
-.photo-buttons-container > div > button:hover {
+} */
+/* .photo-images-container > div > button:hover {
     color: black;
-}
+} */
 .profile-email{
     font-size: 20px;
     margin-bottom: 20px;
@@ -199,17 +202,52 @@
     color: black;
 }
 .photo-by-id-container {
-    width: 50%;
+    /* width: 50%; */
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin-top: 145px;
-    padding-bottom: 100px;
-    background-color: white;
+    margin-top: 28px;
+    padding-bottom: 350px;
+    background-color: #212124;
     border-radius: 5px 5px 5px 5px;
     border: none;
     box-shadow: 5px 5px 10px 30px  rgb(101, 98, 98);
+}
+.photo-by-id-name {
+    color: white
+}
+.back-to-photos-div > i {
+    color: #F3F5F6;
+}
+.back-to-photos-div {
+    color:#F3F5F6;
+    float: left;
+    /* width: 100%; */
+    position: absolute;
+    left: 20px;
+    top: 86px;
+}
+.back-to-photos-div:hover {
+    text-decoration: underline;
+}
+.photo-edit-container > i {
+    color: white;
+    padding-right: 20px;
+}
+.photo-edit-container > i:hover {
+    color: green;
+    padding-right: 20px;
+}
+.photo-delete-container > i {
+    color: white;
+}
+.photo-delete-container > i:hover {
+    color: red;
+}
+.photo-by-id-photo-container {
+    position: relative;
+    top: 110px;
 }

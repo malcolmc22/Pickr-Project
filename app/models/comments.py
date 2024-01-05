@@ -14,6 +14,7 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
+    created_at = db.Column(db.DateTime, default=datetime.now)
     #Relationships
     # users = db.relationship('User')
 
@@ -24,5 +25,6 @@ class Comment(db.Model):
             'photo_id': self.photo_id,
             'user_id': self.user_id,
             'first_name': self.first_name,
-            'last_name': self.last_name
+            'last_name': self.last_name,
+            'created_at': self.created_at
         }
