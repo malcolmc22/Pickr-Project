@@ -71,7 +71,7 @@
     display: flex;
     justify-content: space-evenly;
     position: absolute;
-    top: 640px;
+    top: 620px;
     right: 45px;
 }
 /* .photo-images-container > div > button {
@@ -209,12 +209,11 @@
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin-top: 28px;
+    margin-top: 8px;
     padding-bottom: 350px;
     background-color: #212124;
-    border-radius: 5px 5px 5px 5px;
     border: none;
-    box-shadow: 5px 5px 10px 30px  rgb(101, 98, 98);
+    box-shadow: 5px 5px 10px 10px  rgb(101, 98, 98);
 }
 .photo-by-id-name {
     color: white
@@ -227,8 +226,8 @@
     float: left;
     /* width: 100%; */
     position: absolute;
-    left: 20px;
-    top: 86px;
+    left: 15px;
+    top: 75px;
 }
 .back-to-photos-div:hover {
     text-decoration: underline;
@@ -250,4 +249,19 @@
 .photo-by-id-photo-container {
     position: relative;
     top: 110px;
+}
+.photo-info-container {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    padding-top: 40px;
+}
+.left-photo-info-container {
+    width: 500px;
+}
+.right-photo-info-container {
+    width: 500px;
+}
+.bottom-section-container{
+    width: 100%;
 }

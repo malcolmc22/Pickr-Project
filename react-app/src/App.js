@@ -16,12 +16,14 @@ import CreateAlbum from "./components/albums/CreateAlbum";
 import DeleteAlbum from "./components/albums/DeleteAlbum";
 import UpdateAlbum from "./components/albums/UpdateAlbum";
 import AlbumById from "./components/albums/GetAlbumById";
+import { fetchUsers } from "./store/users";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
+    dispatch(fetchUsers())
   }, [dispatch]);
 
   return (

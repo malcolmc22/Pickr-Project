@@ -56,32 +56,44 @@ function PhotoById() {
                     </div>
                 </div>
         </div>
-        {!likes.find((like) => like.user_id === sessionUser.id) ?
-            <div className='like-container'>
-                <i className='fa-regular fa-thumbs-up' onClick={() => onLike()}></i>
+        <div className='bottom-section-container'>
+            <div className='photo-info-container'>
+                <div className='left-photo-info-container'>
+                    <div className='comments-container'>
+                        {comments.map((comment) => (
+                            comment.user_id == sessionUser.id ?
+                            <div key={comment.id}>
+                                <div className='comment-owner'>{comment.first_name} {comment.last_name}</div>
+                                <div>... upd/del l8tr</div>
+                                <div>{comment.body}</div>
+                            </div> : null
+                        ))}
+                    </div>
+                    <div className='new-comment'>
+                        <textarea
+                        placeholder='Create a new comment here!'
+                        value={body}
+                        onChange={(e) => setBody(e.target.value)}
+                        required
+                        />
+                        <button  onClick={() => onNewComment()}disabled={body.length <= 0}>New Comment</button>
+                    </div>
+                </div>
+                <div className='right-photo-info-container'>
+                    <div className='likes-container'>
+                        {!likes.find((like) => like.user_id === sessionUser.id) ?
+                            <div className='like-container'>
+                                <i className='fa-regular fa-thumbs-up' onClick={() => onLike()}></i>
+                            </div>
+                        :
+                        <div className='dislike-container'>
+                                <i className='fa-regular fa-thumbs-down' onClick={() => onDislike()}></i>
+                            </div>
+                        }
+                        <div className='likes-amount'>{likes.length}</div>
+                    </div>
+                </div>
             </div>
-        :
-            <div className='dislike-container'>
-                <i className='fa-regular fa-thumbs-down' onClick={() => onDislike()}></i>
-            </div>
-        }
-        <div>{likes.length}</div>
-        {comments.map((comment) => (
-            comment.user_id == sessionUser.id ?
-            <div key={comment.id}>
-                <div className='comment-owner'>{comment.first_name} {comment.last_name}</div>
-                <div>... upd/del l8tr</div>
-                <div>{comment.body}</div>
-            </div> : null
-        ))}
-        <div className='new-comment'>
-            <textarea
-            placeholder='Create a new comment here!'
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            required
-            />
-            <button  onClick={() => onNewComment()}disabled={body.length <= 0}>New Comment</button>
         </div>
         </>
     ) : null
