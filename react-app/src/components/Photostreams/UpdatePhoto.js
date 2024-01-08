@@ -40,7 +40,7 @@ function UpdatePhoto() {
     };
     const updatedPic = await dispatch(fetchUpdatePhoto(user_id,photo_id, PicData))
 
-    history.push(`/${user_id}/photostreams`)
+    history.push(`/${user_id}/${photo_id}`)
   };
 
   return photo ? (
