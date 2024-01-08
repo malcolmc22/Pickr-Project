@@ -313,8 +313,9 @@
 }
 .comment{
     padding-bottom: 20px;
-    overflow: hidden;
+    /* overflow: sho; */
     word-break: break-word;
+    position: relative;
 }
 .comment-body{
     font-size: 14px;
@@ -376,4 +377,9 @@
     justify-content: space-between;
     border-bottom: 1px solid #CFD6D9;
     min-height: 100px;
+}
+.test-div{
+    right: -4px;
+    top: -10px;
+    position: absolute;
 }

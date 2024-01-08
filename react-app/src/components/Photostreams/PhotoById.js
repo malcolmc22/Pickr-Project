@@ -8,6 +8,7 @@ import { fetchComments, fetchNewComment } from '../../store/comments';
 function PhotoById() {
     const { user_id, photo_id } = useParams();
     const [body, setBody] = useState("");
+    const [display, setDisplay] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
     const photo = useSelector((state) => state.photo.photo.Photo)
@@ -23,6 +24,9 @@ function PhotoById() {
         dispatch(fetchComments(photo_id))
     }, [dispatch, user_id, photo_id])
 
+    const onDisplay = () => {
+        setDisplay(!display)
+    }
     const onLike = async (e) => {
         const likePhoto = await dispatch(fetchLikePhoto(photo_id, sessionUser.id))
     }
@@ -87,7 +91,11 @@ function PhotoById() {
                                 <div className='comment-top-container'>
                                     <div onClick={() => history.push(`/${photo[0].user_id}/photostreams`)} className='comment-owner'>{comment.first_name} {comment.last_name}</div>
                                     <div className='comment-date'>{new Date(comment.created_at).toDateString()}</div>
-                                    <div className='comment-update'>...</div>
+                                    <div className={"test" + (display ? "" : " hidden")}>
+                                        <div className='comment-update-container'> Update </div>
+                                        <div className='comment-delete-container'> Delete </div>
+                                    </div>
+                                    <div className='comment-update' onClick={()=> onDisplay()}>...</div>
                                 </div>
                                 <div className='comment-body'>{comment.body}</div>
                             </div> : null
