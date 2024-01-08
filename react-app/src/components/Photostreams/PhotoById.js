@@ -49,6 +49,15 @@ function PhotoById() {
         <img className='photo-by-id-photo' alt={photo[0].name} src={photo[0].photo_url}  />
       </div>
                 <div className='photo-images-container'>
+                    {!likes.find((like) => like.user_id === sessionUser.id) ?
+                        <div className='like-container'>
+                            <i title='Like Photo' className='fa-regular fa-thumbs-up fa-2xl' onClick={() => onLike()}></i>
+                        </div>
+                    :
+                        <div className='dislike-container'>
+                            <i title='Dislike Photo' className='fa-regular fa-thumbs-down fa-2xl' onClick={() => onDislike()}></i>
+                        </div>
+                    }
                     <div className='photo-edit-container'>
                         <i title="Edit Photo" className="fa-solid fa-pen-to-square fa-2xl" onClick={() => history.push(`/${sessionUser.id}/${photo[0].id}/update`)}></i>
                     </div>
@@ -96,17 +105,26 @@ function PhotoById() {
                     </div>
                 </div>
                 <div className='right-photo-info-container'>
-                    <div className='likes-container'>
-                        {!likes.find((like) => like.user_id === sessionUser.id) ?
-                            <div className='like-container'>
-                                <i className='fa-regular fa-thumbs-up' onClick={() => onLike()}></i>
-                            </div>
-                        :
-                        <div className='dislike-container'>
-                                <i className='fa-regular fa-thumbs-down' onClick={() => onDislike()}></i>
-                            </div>
-                        }
-                        <div className='likes-amount'>{likes.length}</div>
+                    <div className='right-photo-info-top-container'>
+                        <div className='likes-count-container'>
+                            <div className='likes-amount'>{likes.length}</div>
+                            {likes.length === 1 ?
+                                <div className='likes-amount-title'>Like</div>
+                            :
+                                <div className='likes-amount-title'>Likes</div>
+                            }
+                        </div>
+                        <div className='comments-count-container'>
+                            <div className='comments-amount'>{comments.length}</div>
+                            {comments.length === 1 ?
+                                <div className='comments-amount-title'>Comment</div>
+                            :
+                                <div className='comments-amount-title'>Comments</div>
+                            }
+                        </div>
+                        <div className='photo-created-container'>
+                            <div className='photo-created-info'> Uploaded on {new Date(photo[0].created_at).toDateString()}</div>
+                        </div>
                     </div>
                 </div>
             </div>

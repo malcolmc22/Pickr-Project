@@ -349,3 +349,31 @@
     background-color: #1C9BE9;
     cursor: pointer;
 }
+.like-container > i {
+    color: white;
+    padding-right: 20px;
+}
+.like-container > i:hover {
+    color: green;
+    padding-right: 20px;
+}
+.dislike-container > i {
+    color: white;
+    padding-right: 20px;
+}
+.dislike-container > i:hover {
+    color: red;
+    padding-right: 20px;
+}
+.likes-amount-title{
+    color: #999999;
+}
+.comments-amount-title{
+    color: #999999;
+}
+.right-photo-info-top-container{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #CFD6D9;
+    min-height: 100px;
+}
