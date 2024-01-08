@@ -334,6 +334,7 @@
     border-color: #008DDF;
 }
 .new-comment-button{
+    border: none;
     background-color: #128FDC;
     color: white;
     border-radius: 5px 5px 5px 5px;
@@ -382,4 +383,19 @@
     right: -4px;
     top: -10px;
     position: absolute;
+}
+#comment-edit{
+    color: #212124;
+    padding-right: 10px;
+}
+#comment-edit:hover{
+    color: green;
+    cursor: pointer;
+}
+#comment-delete{
+    color: #212124;
+}
+#comment-delete:hover{
+    color: red;
+    cursor: pointer;
 }

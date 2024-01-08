@@ -4,6 +4,10 @@ import { fetchPhotos, fetchPhoto } from '../../store/photo';
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchLikePhoto, fetchLikes, fetchUnlikePhoto } from '../../store/likes';
 import { fetchComments, fetchNewComment } from '../../store/comments';
+import OpenCommentDelete from '../OpenModalButton/index'
+import OpenCommentEdit from '../OpenModalButton/commeteditmodal';
+import EditComment from '../Comments/editcomment';
+import DeleteComment from '../Comments/deletecomment';
 
 function PhotoById() {
     const { user_id, photo_id } = useParams();
@@ -91,11 +95,10 @@ function PhotoById() {
                                 <div className='comment-top-container'>
                                     <div onClick={() => history.push(`/${photo[0].user_id}/photostreams`)} className='comment-owner'>{comment.first_name} {comment.last_name}</div>
                                     <div className='comment-date'>{new Date(comment.created_at).toDateString()}</div>
-                                    <div className={"test" + (display ? "" : " hidden")}>
-                                        <div className='comment-update-container'> Update </div>
-                                        <div className='comment-delete-container'> Delete </div>
+                                    <div className='comment-edit-del-container'>
+                                        <OpenCommentEdit id="comment-edit"  modalComponent={<EditComment comment={comment}/>}/>
+                                        <OpenCommentDelete id="comment-delete" comment={comment} modalComponent={<DeleteComment comment={comment}/>}/>
                                     </div>
-                                    <div className='comment-update' onClick={()=> onDisplay()}>...</div>
                                 </div>
                                 <div className='comment-body'>{comment.body}</div>
                             </div> : null

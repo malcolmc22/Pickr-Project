@@ -1,0 +1,103 @@
+.comment-cancel-delete-button{
+    width:89px;
+    height:32px;
+}
+.comment-confirm-delete-button,
+.comment-confirm-edit-button{
+    width:89px;
+    height:32px;
+}
+.comment-cancel-ok-container{
+    margin-top: 30px;
+    float: right;
+    margin-right: 15px;
+}
+.comment-delete-upper-container > i,
+.comment-edit-upper-container > i {
+    margin-right: 15px;
+    margin-top: 15px;
+}
+.comment-delete-upper-container,
+.comment-edit-upper-container {
+    margin-left: 15px;
+}
+.comment-confirmation{
+    margin-left: 15px;
+}
+.comment-cancel-delete-button{
+    border: none;
+    margin-right: 15px;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #979EA2;
+}
+.comment-cancel-delete-button:hover{
+    background-color: #A4ACB0;
+    cursor: pointer;
+}
+.comment-confirm-delete-button{
+    border: none;
+    margin-right: 15px;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #E2292B;
+}
+.comment-confirm-delete-button:hover{
+    background-color: #EF2B2D;
+    cursor: pointer;
+}
+.comment-confirm-edit-button{
+    background-color: #128FDC;
+    border: none;
+    margin-right: 15px;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+}
+.comment-confirm-edit-button:hover{
+    background-color: #1C9BE9;
+    cursor: pointer;
+}
+.comment-delete-upper-container > i,
+.comment-edit-upper-container > i {
+    float: right;
+    color: #999999;
+}
+.comment-delete-upper-container > i:hover,
+.comment-edit-upper-container > i:hover{
+    color: #212124;
+    cursor: pointer;
+}
+.comment-delete-modal-container {
+    width: 600px;
+    height: 161px;
+    border-radius: 5px 5px 5px 5px;
+    color: #212124;
+}
+.comment-edit-modal-container{
+    width: 600px;
+    height: 200px;
+    border-radius: 5px 5px 5px 5px;
+    color: #212124;
+    margin-bottom: 15px;
+}
+.edit-comment-text{
+    border: none;
+    resize: none;
+    width: 80%;
+    height: 70px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(118,118,118);
+    margin-left: 15px;
+}
+.edit-comment-text:focus{
+    outline: none !important;
+    border-color: #008DDF;
+}
+/* border: none;
+    resize: none;
+    width: 100%;
+    height: 70px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(118,118,118); */

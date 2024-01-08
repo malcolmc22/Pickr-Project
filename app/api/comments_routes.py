@@ -16,12 +16,12 @@ def get_comments(photo_id):
     return jsonify([comment.to_dict() for comment in comments])
 
 # update comment
-@comments_routes.route('/<int:photo_id>/<int:user_id>', methods=["PUT"])
+@comments_routes.route('/<int:photo_id>/<int:user_id>/<int:comment_id>', methods=["PUT"])
 @login_required
-def update_comment(photo_id, user_id):
+def update_comment(photo_id, user_id, comment_id):
     id = current_user.id
     if user_id == id:
-        comment = Comment.query.filter_by(photo_id=photo_id, user_id=id).first()
+        comment = Comment.query.filter_by(photo_id=photo_id, user_id=id, id=comment_id).first()
         if comment:
             new_body = request.json.get("body")
 
@@ -37,12 +37,12 @@ def update_comment(photo_id, user_id):
         return {"error": "Unauthorized"}, 400
 
 # delete comment
-@comments_routes.route('/<int:photo_id>/<int:user_id>', methods=["DELETE"])
+@comments_routes.route('/<int:photo_id>/<int:user_id>/<int:comment_id>', methods=["DELETE"])
 @login_required
-def delete_comment(photo_id, user_id):
+def delete_comment(photo_id, user_id, comment_id):
     id = current_user.id
     if user_id == id:
-        comment = Comment.query.filter_by(photo_id=photo_id, user_id=id).first()
+        comment = Comment.query.filter_by(photo_id=photo_id, user_id=id, id=comment_id).first()
         if comment:
             db.session.delete(comment)
             db.session.commit()
