@@ -24,10 +24,10 @@ def validation_errors_to_error_messages(validation_errors):
 @login_required
 def get_photo_by_id(user_id, photo_id):
     id = current_user.id
-    photos_owned = Photo.query.filter_by(user_id=id).all()
+    photos = Photo.query.all()
 
-    photo_by_id = [photo.to_dict() for photo in photos_owned if photo.id == photo_id]
-    print('this is photo -----------', photo_by_id)
+    photo_by_id = [photo.to_dict() for photo in photos if photo.id == photo_id]
+    # print('this is photo -----------', photo_by_id)
     # return 'hi'
     return {'Photo': photo_by_id}
 

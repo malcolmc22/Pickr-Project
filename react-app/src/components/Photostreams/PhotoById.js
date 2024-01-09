@@ -90,18 +90,20 @@ function PhotoById() {
                     </div>
                     <div className='comments-container'>
                         {comments.map((comment) => (
-                            comment.user_id == sessionUser.id ?
+                            // comment.user_id == sessionUser.id ?
                             <div className='comment' key={comment.id}>
                                 <div className='comment-top-container'>
-                                    <div onClick={() => history.push(`/${photo[0].user_id}/photostreams`)} className='comment-owner'>{comment.first_name} {comment.last_name}</div>
+                                    <div onClick={() => history.push(`/${comment.user_id}/photostreams`)} className='comment-owner'>{comment.first_name} {comment.last_name}</div>
                                     <div className='comment-date'>{new Date(comment.created_at).toDateString()}</div>
+                                    {comment.user_id == sessionUser.id ?
                                     <div className='comment-edit-del-container'>
                                         <OpenCommentEdit id="comment-edit"  modalComponent={<EditComment comment={comment}/>}/>
                                         <OpenCommentDelete id="comment-delete" comment={comment} modalComponent={<DeleteComment comment={comment}/>}/>
-                                    </div>
+                                    </div> : null}
                                 </div>
                                 <div className='comment-body'>{comment.body}</div>
-                            </div> : null
+                            </div>
+                            // : null
                         ))}
                     </div>
                     <div className='new-comment'>

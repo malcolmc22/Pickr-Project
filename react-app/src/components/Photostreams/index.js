@@ -9,6 +9,7 @@ function PhotoStream() {
     const { user_id } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
     const photos = useSelector((state) => Object.values(state.photo.allPhotos)[0]);
+    const users = useSelector((state) => state.users.users.users)
     const history = useHistory();
     // console.log(photos, 'photoz')
     // photos.map(photo => {
@@ -21,15 +22,16 @@ function PhotoStream() {
         dispatch(fetchPhotos(user_id))
     }, [dispatch, user_id])
 
-    return  sessionUser && (
+    return  sessionUser && users ? (
         <>
         <div className='profile-info'>
+            <div className='gradient-test'></div>
             <div className='user-info-container'>
-                <div className='profile-img'>
-                    {/* <div>img here</div> */}
-                </div>
-                <div className='profile-name'>{sessionUser.first_name} {sessionUser.last_name}</div>
-                <div className='profile-email'>{sessionUser.email}</div>
+                {/* <div className='profile-img'> */}
+
+                {/* </div> */}
+                <div className='profile-name'>{users.find((user) => user.id == user_id).first_name} {users.find((user) => user.id == user_id).last_name}</div>
+                <div className='profile-email'>{users.find((user) => user.id == user_id).email}</div>
             </div>
 
         </div>
@@ -37,7 +39,11 @@ function PhotoStream() {
             <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
             <NavLink exact to={`/${user_id}/albums`}>Albums</NavLink>
         </nav>
+        { sessionUser.id == user_id ?
         <div className='create-photo-button-container'><button className='create-photo-button' onClick={() => history.push(`/${sessionUser.id}/new-photostream`)}>Create Photo</button></div>
+        :
+        null
+        }
         <div className='all-photos-container'>
             {photos?.map((photo) => (
                 <div key={photo.id}>
@@ -52,7 +58,7 @@ function PhotoStream() {
         </div>
         <Landing />
         </>
-    )
+    ) : null
 }
 
 export default PhotoStream
