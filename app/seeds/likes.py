@@ -1,28 +1,28 @@
-from app.models import db, Album, environment, SCHEMA
+from app.models import db, Like, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
 
 # Adds a demo user, you can add other users here if you want
-def seed_albums():
-    demo = Album(
-        name='demo@aa.io', user_id=1)
-    marnie = Album(
-        name='marnie@aa.io', user_id=2)
-    bobbie = Album(
-        name='bobbie@aa.io', user_id=3)
-    malcolm = Album(
-        name='malcolm@aa.io', user_id=4)
-    alex = Album(
-        name='alex@aa.io', user_id=5)
-    asuna = Album(
-        name='asuna@aa.io', user_id=6)
-    malcolm2 = Album(
-        name="Mal's Album", user_id=4)
-    alex2 = Album(
-        name="Alex's Album", user_id=5)
-    asuna2 = Album(
-        name="Asuna's Album", user_id=6)
+def seed_likes():
+    demo = Like(
+        photo_id= 1, user_id=1)
+    marnie = Like(
+        photo_id= 2, user_id=2)
+    bobbie = Like(
+        photo_id= 3, user_id=3)
+    malcolm = Like(
+        photo_id= 4, user_id=4)
+    alex = Like(
+        photo_id= 5, user_id=5)
+    asuna = Like(
+        photo_id= 6, user_id=6)
+    malcolm2 = Like(
+        photo_id= 1, user_id=4)
+    alex2 = Like(
+        photo_id= 2, user_id=5)
+    asuna2 = Like(
+        photo_id= 3, user_id=6)
 
     db.session.add(demo)
     db.session.add(marnie)
@@ -42,10 +42,10 @@ def seed_albums():
 # incrementing primary key, CASCADE deletes any dependent entities.  With
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
-def undo_albums():
+def undo_likes():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.albums RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.likes RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM albums"))
+        db.session.execute(text("DELETE FROM likes"))
 
     db.session.commit()

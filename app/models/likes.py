@@ -10,7 +10,6 @@ class Like(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    total = db.Column(db.Integer, server_default='0')
     photo_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('photos.id')), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
 
@@ -20,7 +19,6 @@ class Like(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'total': self.total,
             'photo_id': self.photo_id,
             'user_id': self.user_id
         }

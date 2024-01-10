@@ -42,7 +42,6 @@ def like_photo(photo_id, user_id):
         like = Like.query.filter_by(photo_id = photo_id, user_id = id).first()
         if not like:
             new_like = Like(
-                total = 1,
                 photo_id = photo_id,
                 user_id = id
             )

@@ -2,6 +2,9 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .photos import seed_photos, undo_photos
 from .albums import seed_albums, undo_albums
+from .comments import seed_comments, undo_comments
+from.likes import seed_likes, undo_likes
+
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -17,12 +20,16 @@ def seed():
         # command, which will  truncate all tables prefixed with
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
+        undo_likes()
+        undo_comments()
         undo_photos()
         undo_albums()
         undo_users()
     seed_users()
     seed_albums()
     seed_photos()
+    seed_comments()
+    seed_likes()
     # Add other seed functions here
 
 
@@ -30,10 +37,14 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.likes RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.albums RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.photos RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
+        db.session.execute("DELETE FROM likes")
+        db.session.execute("DELETE FROM comments")
         db.session.execute("DELETE FROM albums")
         db.session.execute("DELETE FROM photos")
         db.session.execute("DELETE FROM users")

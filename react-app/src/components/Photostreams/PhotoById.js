@@ -46,7 +46,7 @@ function PhotoById() {
     return photo && likes && comments && users ? (
         <>
         <div className='photo-by-id-container'>
-        <div className='back-to-photos-div' onClick={() => history.push(`/${sessionUser.id}/photostreams`)}><i className="fa-solid fa-arrow-left"></i> Back to Photostream</div>
+        <div className='back-to-photos-div' onClick={() => history.push(`/${photo[0].user_id}/photostreams`)}><i className="fa-solid fa-arrow-left"></i> Back to Photostream</div>
             <img
         alt="logo"
         className="logo-image"

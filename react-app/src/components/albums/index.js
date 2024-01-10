@@ -22,6 +22,7 @@ function Albums() {
     return sessionUser && users ? (
         <>
         <div className='profile-info'>
+            <div className='gradient-test'></div>
             <div className='user-info-container'>
                 <div className='profile-img'>
                     {/* <div>img here</div> */}
