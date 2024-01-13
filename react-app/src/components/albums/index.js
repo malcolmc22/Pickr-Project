@@ -33,8 +33,12 @@ function Albums() {
 
         </div>
         <nav className='you-page-nav'>
-            <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
-            <NavLink exact to={`/${user_id}/albums`}>Albums</NavLink>
+            <div>
+                <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
+            </div>
+            <div style={{borderBottom : '3px solid #0091DC'}}>
+                <NavLink exact to={`/${user_id}/albums`}style={{color: 'black'}}>Albums</NavLink>
+            </div>
         </nav>
         { sessionUser.id == user_id ?
         <div className='create-album-button-container'><button className='create-album-button' onClick={() => history.push(`/${sessionUser.id}/albums/new-album`)}>Create Album</button></div>
@@ -45,7 +49,7 @@ function Albums() {
             <div className='all-albums-container'>
                 {albums?.map((album) => (
                     <div key={album.id}>
-                        <div className='album' onClick={()=> history.push(`/${sessionUser.id}/albums/${album.id}`)}><div className='album-name'>{album.name}</div></div>
+                        <div className='album' onClick={()=> history.push(`/${sessionUser.id}/albums/${album.id}`)}><div className='you-page-album-name'>{album.name}</div></div>
                         {sessionUser.id == album.user_id ?
                         <div className='album-buttons-container'>
                             <div><button onClick={() => history.push(`/${sessionUser.id}/albums/${album.id}/update`)}>Update Album</button></div>

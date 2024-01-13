@@ -18,9 +18,9 @@ function CreatePhoto() {
     formData.append("title", title)
     formData.append("description", description)
     formData.append("photo_url", photo_url);
-    for (let key of formData.entries()) {
-        console.log(key[0] + ', ' + key[1]);
-    }
+    // for (let key of formData.entries()) {
+    //     console.log(key[0] + ', ' + key[1]);
+    // }
     // aws uploads can be a bit slow—displaying
     // some sort of loading message is a good idea
     setImageLoading(true);
@@ -66,7 +66,7 @@ function CreatePhoto() {
           />
         </label>
         <button className='create-photo-button' type="submit">Create Photo</button>
-        {imageLoading && <p>Loading...</p>}
+        {imageLoading && <p>Loading Image...</p>}
       </form>
     </>
   );

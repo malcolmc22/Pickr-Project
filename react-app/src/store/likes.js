@@ -76,7 +76,7 @@ export const likesReducer = (state = initialState, action) => {
         case DELETE_LIKE: {
             const newState = {...state}
             const newLikes = newState.likes
-            console.log(newLikes)
+            // console.log(newLikes)
             const likeToDelete = state.likes.find((like) => like.photo_id == action.photo_id && like.user_id == action.user_id)
             for (let i = 0; i < newLikes.length; i++) {
                 const currentLike = newLikes[i]

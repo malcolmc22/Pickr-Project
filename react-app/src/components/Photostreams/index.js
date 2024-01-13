@@ -36,8 +36,12 @@ function PhotoStream() {
 
         </div>
         <nav className='you-page-nav'>
-            <NavLink exact to={`/${user_id}/photostreams`}>PhotoStream</NavLink>
-            <NavLink exact to={`/${user_id}/albums`}>Albums</NavLink>
+            <div style={{borderBottom : '3px solid #0091DC'}}>
+                <NavLink exact to={`/${user_id}/photostreams`} style={{color: 'black'}}>PhotoStream</NavLink>
+            </div>
+            <div>
+                <NavLink exact to={`/${user_id}/albums`}>Albums</NavLink>
+            </div>
         </nav>
         { sessionUser.id == user_id ?
         <div className='create-photo-button-container'><button className='create-photo-button' onClick={() => history.push(`/${sessionUser.id}/new-photostream`)}>Create Photo</button></div>

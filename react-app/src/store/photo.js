@@ -49,9 +49,9 @@ export const fetchNewPhoto = (userId, payload) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        console.log(data, 'this is res')
+        // console.log(data, 'this is res')
     } else {
-        console.log("there was an error making your post")
+        // console.log("there was an error making your post")
     }
 }
 
