@@ -15,7 +15,7 @@ function DeleteComment({comment}) {
     return(
         <div className="comment-delete-modal-container">
             <div className="comment-delete-upper-container">
-                <i className="fa-solid fa-xmark fa-2xl"></i>
+                <i onClick={() => {closeModal()}}className="fa-solid fa-xmark fa-2xl"></i>
                 <h1 className="comment-delete-title">Delete Comment</h1>
             </div>
             <div className="comment-confirmation">Are you sure you want to delete this comment?</div>
