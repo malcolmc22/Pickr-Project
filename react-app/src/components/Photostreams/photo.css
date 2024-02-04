@@ -240,6 +240,7 @@
 }
 .back-to-photos-div:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 .photo-edit-container > i {
     color: white;
