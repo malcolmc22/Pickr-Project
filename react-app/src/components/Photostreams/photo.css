@@ -58,7 +58,9 @@
     height: 320px;
     width: 320px;
 }
-
+.all-photos-container > div > img:hover {
+    cursor: pointer;
+}
 .create-photo-button {
     padding-top: 10px;
     padding-left: 25px;
