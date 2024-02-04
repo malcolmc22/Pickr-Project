@@ -167,6 +167,10 @@
     left: 193px;
     top: 84px;
 }
+.back-to-albums-div:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
 .album-by-id-container {
     width: 80%;
     margin: auto;
