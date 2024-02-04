@@ -54,6 +54,8 @@ a:-webkit-any-link:hover {
   font-size: xx-large;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  top: -4px;
 }
 #root {
   padding-top: 42px;
