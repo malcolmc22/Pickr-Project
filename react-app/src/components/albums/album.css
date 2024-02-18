@@ -183,6 +183,9 @@
 .all-photos-in-album-container > div > img:hover{
     cursor: pointer;
 }
+.all-photos-not-in-album-container > div > img:hover {
+    cursor: pointer;
+}
 .album-by-id-container {
     width: 80%;
     margin: auto;
