@@ -34,7 +34,7 @@ a:-webkit-any-link {
 /* hovers for navlinks turn text green */
 a:-webkit-any-link:hover {
   text-decoration: none;
-
+  color: white;
 }
 
 .auth-container {
@@ -97,6 +97,10 @@ a:-webkit-any-link:hover {
   padding-right: 25px;
   margin-right: 50px;
   margin-top: 5px;
+}
+.logout-button:hover{
+  cursor: pointer;
+  color: lightgray;
 }
 body {
   margin: 0;
