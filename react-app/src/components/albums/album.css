@@ -156,6 +156,10 @@
     border: none;
     border-radius: 5px 5px 5px 5px;
 }
+.add-photo-to-album-button:hover {
+    cursor: pointer;
+    color: black;
+}
 .all-photos-not-in-album-container {
     display: flex;
     flex-wrap: wrap;
