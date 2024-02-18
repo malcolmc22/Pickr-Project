@@ -67,7 +67,12 @@ a:-webkit-any-link:hover {
   align-items: center;
   justify-content: space-between;
 }
-
+.nav-login-button:hover {
+  cursor: pointer;
+}
+.nav-signup-button:hover {
+  cursor: pointer;
+}
 .nav-buttons-container > div > a > button {
   border: none;
   border-radius: 5px 5px 5px 5px;

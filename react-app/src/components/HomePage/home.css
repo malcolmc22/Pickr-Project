@@ -68,6 +68,7 @@ html {
 
 .start-for-free-button:hover {
     color: rgb(202, 184, 184);
+    cursor: pointer;
 }
 
 .activity-container {
