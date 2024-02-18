@@ -78,6 +78,7 @@
 }
 .album-buttons-container > div > button:hover {
     color: black;
+    cursor: pointer;
 }
 .create-album-button-container {
     background-color: #F3F5F6;
