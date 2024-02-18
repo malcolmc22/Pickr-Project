@@ -252,12 +252,14 @@
 .photo-edit-container > i:hover {
     color: green;
     padding-right: 20px;
+    cursor: pointer;
 }
 .photo-delete-container > i {
     color: white;
 }
 .photo-delete-container > i:hover {
     color: red;
+    cursor: pointer;
 }
 .photo-by-id-photo-container {
     position: relative;
@@ -371,6 +373,7 @@
 .like-container > i:hover {
     color: green;
     padding-right: 20px;
+    cursor: pointer;
 }
 .dislike-container > i {
     color: white;
@@ -379,6 +382,7 @@
 .dislike-container > i:hover {
     color: red;
     padding-right: 20px;
+    cursor: pointer;
 }
 .likes-amount-title{
     color: #999999;
