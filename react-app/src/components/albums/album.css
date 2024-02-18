@@ -59,6 +59,7 @@
 }
 .create-album-button:hover {
     color: black;
+    cursor: pointer;
 }
 .album-buttons-container {
     display: flex;

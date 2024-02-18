@@ -73,6 +73,7 @@
 }
 .create-photo-button:hover {
     color: black;
+    cursor: pointer;
 }
 .photo-images-container {
     display: flex;
